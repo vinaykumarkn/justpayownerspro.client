@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="307" height="235">
+    <g data-name="Group 218997" transform="translate(-43 -36.014)">
+        <rect data-name="Rectangle 301" width="307" height="235" rx="4" transform="translate(43 36.014)" fill="#e5e7eb"/>
+        <g data-name="Group 219199" transform="translate(-378.016 -96.852)">
+            <circle cx="41.7" cy="41.7" transform="rotate(.26 -44778.91 119895.146)" fill="#fff" r="41.7"/>
+            <g fill="none" stroke="#bcc0c4" stroke-width="3">
+                <path d="M605.606 233.63h10.475M619.074 233.63h2.993M625.061 233.63h2.993M628.054 225.64h2.993M634.04 225.64h2.993M583.159 226.319h14.715a4.537 4.537 0 0 1 4.015-2.744 4.332 4.332 0 0 1 1.62.272 7.079 7.079 0 0 1 6.625-4.601 7.749 7.749 0 0 1 7.079 7.071h7.846M547.242 233.8h5.925a5.978 5.978 0 0 1 5.489-2.773 6.277 6.277 0 0 1 5.328-3.227 6.341 6.341 0 0 1 6.178 6h14.494M587.648 233.63h2.993M593.634 233.63h2.993"/>
+            </g>
+            <g data-name="Group 12">
+                <path data-name="Stroke 1" d="M541.108 236.582v-11.558h-11.644v23.115" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="3"/>
+                <g data-name="Group 8">
+                    <g data-name="Path 184735" fill="#f7f7f7">
+                        <path d="M592.574 295.5h-68v-29.288l34.412-33.26 33.588 33.257V295.5Z"/>
+                        <path d="M592.074 295v-28.583l-33.092-32.765-33.908 32.772V295h67m1 1h-69v-30l34.916-33.747L593.074 266v30Z" fill="#707070"/>
+                    </g>
+                    <path data-name="Stroke 2" d="M591.566 267.402v28.894h-67.924v-28.894" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="3"/>
+                    <path data-name="Stroke 4" d="m558.574 219.245-42.695 42.378 7.763 7.705 34.932-34.673 34.932 34.673 7.763-7.705Z" fill="#fff" stroke="#656565" stroke-width="3"/>
+                    <path data-name="Stroke 6" d="M537.226 296.296h15.525v-28.894h-15.525Z" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="3"/>
+                </g>
+                <path data-name="Stroke 9" d="M560.515 282.812h19.407v-15.41h-19.407Z" fill="#fff" stroke="#656565" stroke-width="3"/>
+                <path data-name="Stroke 10" d="M511.998 296.296h93.152" fill="none" stroke="#656565" stroke-linejoin="round" stroke-width="3"/>
+            </g>
+        </g>
+    </g>
+</svg>

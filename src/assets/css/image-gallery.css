@@ -1,0 +1,7 @@
+#dropzone-custom .image-item__btn-wrapper.card-body button {
+    background-color: #375794;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    font-weight: 600;
+}

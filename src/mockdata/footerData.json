@@ -1,0 +1,162 @@
+{
+  "logoTitle": [
+    {
+      "title": "About Us"
+    }
+
+  ],
+  "companyAddress": [
+    {
+      "address": "About Us"
+    }
+  ],
+  "siteMap": [
+    {
+      "text": "About Us",
+      "icon": "/svgs/group-icon.svg",
+      "url": "/about-us"
+    },
+    {
+      "text": "Terms & Conditions",
+      "icon": "/svgs/terms-and-conditions-icon.svg",
+      "url": "/terms-and-condition"
+    },
+    {
+      "text": "Privacy Policy",
+      "icon": "/svgs/privacy-document-icon.svg",
+      "url": "/privacy-policy"
+    },
+    {
+      "text": "Advertise With Us",
+      "icon": "/svgs/online-ads-icon.svg",
+      "url": "/advertise-with-us"
+    },
+    {
+      "text": "Sitemap",
+      "icon": "/svgs/sitemap-icon.svg",
+      "url": "/sitemap"
+    },
+    {
+      "text": "FAQs",
+      "icon": "/svgs/faq-icon.svg",
+      "url": "/faq"
+    },
+    {
+      "text": "Blog",
+      "icon": "/svgs/blogger-icon.svg",
+      "url": "/blog"
+    },
+    {
+      "text": "Contact Us",
+      "icon": "/svgs/blogger-icon.svg",
+      "url": "/contact-us"
+    }
+   
+  ],
+  "TopCities": [
+    {
+      "text": "Delhi / NCR",
+      "url": "/about-us"
+    },
+    {
+      "text": "Bangalore",
+      "url": "/contact-us"
+    },
+    {
+      "text": "Mumbai",
+      "url": "/feedback"
+    },
+    {
+      "text": "Hyderabad",
+      "url": "/complaint"
+    },
+    {
+      "text": "Pune",
+      "url": "/advertise-with-us "
+    },
+    {
+      "text": "Kolkata",
+      "url": "/terms-and-condition"
+    },
+    {
+      "text": "Chennai",
+      "url": "/privacy-policy"
+    },
+    {
+      "text": "Ahmedabad",
+      "url": "/sitemap"
+    }    
+  ],
+  "navbar": [
+    {
+      "text": "Karnataka Real Estate",
+      "menu": [
+        {
+          "text": "Real estate in White Field",
+          "url": ""
+        }
+
+      ]
+    },
+
+    {
+      "text": "Flats for Rent",
+      "menu": [
+        {
+          "text": "Flats for Rent in White Filed",
+          "url": ""
+        }
+
+      ]
+    },
+    {
+      "text": "Flats for Sale",
+      "menu": [
+        {
+          "text": "Flats in Sale Kormangala",
+          "url": ""
+        }
+
+      ]
+    },
+    {
+      "text": "New Projects & Plots",
+      "menu": [
+        {
+          "text": "New Projects in Delhi",
+          "url": ""
+        }
+      ]
+    }
+  ],
+  "navbarSocialmedia": [
+    {
+      "text": "Social Media",
+      "menu": [
+        {
+          "text": "Facebook",
+          "url": "https://www.bing.com/",
+          "svg": "<svg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' className='h-5 w-5' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'> <path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'> </path> </svg>"
+        },
+        {
+          "text": "Instagram",
+          "url": "",
+          "svg": "<svg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' className='h-5 w-5' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'> <path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'> </path> </svg>"
+        },
+        {
+          "text": "Twitter",
+          "url": "",
+          "svg": "<svg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' className='h-5 w-5' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'> <path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'> </path> </svg>"
+        },
+        {
+          "text": "Youtube",
+          "url": "",
+          "svg": "<svg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' className='h-5 w-5' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'> <path d='M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z'> </path> </svg>"
+        }
+      ]
+    }
+
+  ]
+}
+
+

@@ -1,0 +1,40 @@
+{
+  "myprofile": [
+    {
+      "text": "Dashboard",
+      "icon": "/svgs/dashboard-icon.svg",
+      "url": "/profile/mydashboard"
+    },
+    {
+      "text": "My Profile",
+      "icon": "/svgs/my-profile.svg",
+      "url": "/profile/myprofile"
+    },
+    {
+      "text": "Add New Property",
+      "icon": "/svgs/add-new.svg",
+      "url": "/profile/mynewproperty"
+    },
+    {
+      "text": "My Properties List",
+      "icon": "/svgs/property-listing-icon.svg",
+      "url": "/profile/myproperties"
+    },
+
+    {
+      "text": "Public Enquiries",
+      "icon": "/svgs/question-inquiry-icon.svg",
+      "url": "/profile/enquiries"
+    },
+    {
+      "text": "Favorites",
+      "icon": "/svgs/favorities-icon.svg",
+      "url": "/profile/myfavorites"
+    }
+
+
+  ]
+     
+}
+  
+

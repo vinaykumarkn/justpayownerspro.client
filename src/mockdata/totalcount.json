@@ -1,0 +1,74 @@
+[
+    {
+      "id": 1,
+      "text": "Apartment's",
+      "count": "1008",      
+      "image": "/assets/images/demo-real-estate-icon-home.svg",
+      "icon": "/assets/images/demo-real-estate-icon-home.svg",
+      "svg": "/src/assets/images/demo-real-estate-icon-home.svg",
+      "url": "View all property"
+    },
+    {  
+      "id": 2,
+      "text": "Houses",
+      "count": "2002",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    },
+    {
+      "id": 3,
+      "text": "Land or Plot ",
+      "count": "1890",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    },
+    {
+      "id": 4,
+      "text": "New Builder Projects",
+      "count": "4220",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    },
+    {
+      "id": 5,
+      "text": "Commercial",
+      "count": "4220",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    },
+    {
+      "id": 5,
+      "text": "Office",
+      "count": "4220",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    }, {
+      "id": 5,
+      "text": "New Builder Projects",
+      "count": "4220",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    },
+    {
+      "id": 5,
+      "text": "New Builder Projects",
+      "count": "4220",      
+      "image": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "icon": "/assets/caio-coelho-xFmXLq_KJxg-unsplash.jpg",
+      "svg": "/src/assets/images/demo-real-estate-icon-apartment.svg",
+      "url": "View all property"
+    }
+  ]
+  

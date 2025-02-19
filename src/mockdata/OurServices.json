@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "text": "Home Automation",
+       "note" : "Ensure that all interactions are handled with the utmost professionalism, from initial inquiries to final transactions."
+    },
+    {  
+      "id": 2,
+      "text": "3D Animation",
+       "note" : "Develop an intuitive and user-friendly website that allows users to easily search for properties, schedule viewings, and access relevant information"
+    },
+    {  
+        "id": 3,
+        "text": "House Contracting & and Floor Plans",
+         "note" : "Ensure all property listings are verified for accuracy and authenticity to build trust with clients."
+      },     
+      {  
+        "id": 5,
+        "text": "Financing Assistance",
+         "note" : "Partner with financial institutions to offer clients financing options and mortgage advice."
+      }
+     
+]

@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "text": "Best services",
+       "note" : "Ensure that all interactions are handled with the utmost professionalism, from initial inquiries to final transactions."
+    },
+    {  
+      "id": 2,
+      "text": "User friendly",
+       "note" : "Develop an intuitive and user-friendly website that allows users to easily search for properties, schedule   "
+    },
+    {  
+        "id": 3,
+        "text": "Trusted property",
+         "note" : "Ensure all property listings are verified for accuracy and authenticity to build trust with clients."
+      },
+      {  
+        "id": 4,
+        "text": "Legal advisor",
+         "note" : "Provide access to experienced legal advisors who can assist with contracts, negotiations, and  ."
+      },
+      {  
+        "id": 5,
+        "text": "Financing Assistance",
+         "note" : "Partner with financial institutions to offer clients financing options and mortgage advice."
+      },
+      {  
+        "id": 5,
+        "text": "Consulting services",
+						
+         "note" : "Our consulting services are designed to provide you with expert guidance and personalized"
+      }
+]

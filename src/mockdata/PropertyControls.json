@@ -1,0 +1,452 @@
+{
+  "ApartmentType": [
+    "Select",
+    "Apartment",
+    "Independent House/Villa",
+    "Gated Community Villa"
+  ],
+  "ApartmentNames": [
+    "Select",
+    "Sai Shyam Apartment",
+    "Sai Hari Villa",
+    "Sri laxmi Community Villa"
+  ],
+  "BHKType": [
+    "Select",
+    "1 RK",
+    "1 BHK",
+    "2 BHK",
+    "3 BHK",
+    "4 BHK",
+    "4 +BHK"
+  ],
+  "SaleType": [
+    "Select",
+    "New Property",
+    "Resale Property"   
+  ],
+  "Ownership": [
+    "Select",
+    "Individual",
+    "On Lease",
+    "Self Owned",   
+    "A Broker/Agent" ,  
+    "A Builder/Promoter",
+    "Co-operative Society",
+    "Power of Attorney",
+    "others"
+  ], 
+  "LandPropertyType": [
+    "Select",
+    "Residential Plot",   
+    "Commercial Plot" ,  
+    "Industrial Land",
+    "Farm/Agricultural Land",
+    "others"
+  ],
+  "LandUnits": [
+    "Select",
+    "Sq.ft.", 
+    "Acre", 
+    "Sq.Meter", 
+    "Sq.Yards",   
+    "Hectares",
+    "Guntha",
+    "others"
+  ],  
+  "KhataCertificate": [
+    "Select",
+    "Yes, A-Khata",
+    "Yes, B-Khata",
+    "Yes, E-Khata" ,  
+    "No",
+    "Don't Know"
+  ], 
+  "SaleDeedCertificate": [
+    "Select",
+    "Yes",
+    "No",
+    "Don't Know"
+  ],   
+  "EncumbranceCertificate": [
+    "Select",
+    "Yes",
+    "No",
+    "Don't Know"
+  ],   
+  "ConversionCertificate": [
+    "Select",
+    "Yes",
+    "No",
+    "Not Needed",
+    "Don't Know"
+  ], 
+  "RERAApproved": [ 
+    "Select",
+    "Yes",
+    "No",
+    "On Process",
+    "Rejected"
+  ],
+  "PropertyTax": [ 
+  "Select",
+  "Yes",
+  "No",
+  "Pending"
+],
+"OccupancyCertificate": [ 
+  "Select",
+  "Yes",
+  "No",
+  "Pending"
+],
+  "Floor": [
+    "Select",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25"
+  ],
+  "TotalFloor": [
+    "Select",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25"
+  ],
+  "PropertyAge": [
+    "Select",
+    "Less than a Year",
+    "1 to 3 year",
+    "3 to 5 year",
+    "5 to 10 year",
+    "More than 10 year"
+  ],
+  "Facing": [
+    "Select",
+    "North",
+    "South",
+    "East",
+    "West",
+    "North-East",
+    "North-West",
+    "South-East",
+    "South-West",
+    "Dont-Know"
+  ],
+  "Furnishing": [
+    "Select",
+    "Fully furnished",
+    "Semi-furnished",
+    "Unfurnished"
+  ],
+  "Parking": [
+    "Select",
+    "Bike",
+    "Car",
+    "Both",
+    "None"
+  ],
+  "PreferredTenants": [
+    "Anyone",
+    "Family",
+    "Bachelor Female",
+    "Bachelor Male",
+    "Company"
+  ],
+  "MonthlyMaintenance": [
+    "Select",
+    "Maintenance Included",
+    "Maintenance Extra"
+  ],
+  "Bathroom": [
+    "Select",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "Balcony": [
+    "Select",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "WaterSupply": [
+    "Select",
+    "Corporation",
+    "Borewell",
+    "Both"
+  ],
+  "Showproperty": [
+    "Select",
+    "Owner"    
+  ],
+  "Time": [
+    "Select",
+    "9:00 AM",
+    "9:30 AM",
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",  
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "01:00 PM",
+    "01:30 PM",
+    "02:00 PM",
+    "02:30 PM",
+    "03:00 PM",
+    "03:30 PM",
+    "04:00 PM",
+    "04:30 PM",
+    "05:00 PM",
+    "05:30 PM",
+    "06:00 PM",
+    "06:30 PM",
+    "07:00 PM",
+    "07:30 PM"   
+  ],
+  "Amenities": [
+  { "name": "Air Conditioner", "iconClass": "minisplit-svgrepo-com" }, 
+  { "name": "Gas Pipeline", "iconClass": "gas-fuel-gas-fuse-pipeline-svgrepo-com" },
+  { "name": "Swimming pool", "iconClass": "swimming-svgrepo-com" },
+  { "name": "Fire Safety", "iconClass": "fire-extinguisher-safety-svgrepo-com" },
+  { "name": "Gymnasium", "iconClass": "stationary-bicycle-gymnasium-svgrepo-com" },
+  { "name": "House Keeping", "iconClass": "housekeeper-svgrepo-com" },
+  { "name": "Park", "iconClass": "park-svgrepo-com" },
+  { "name": "Garden", "iconClass": "plant-garden-svgrepo-com" },
+  { "name": "Jogging track", "iconClass": "running-run-svgrepo-com" },
+    { "name": "Sewage Treatment Plant", "iconClass": "waste-water-svgrepo-com" },
+  { "name": "Cafeteria", "iconClass": "cafe-svgrepo-com" },
+  { "name": "Yoga room", "iconClass": "yoga-svgrepo-com" },
+  { "name": "Library", "iconClass": "library-svgrepo-com" },
+  { "name": "Children's play area", "iconClass": "playground-svgrepo-com" },
+  { "name": "Intercom", "iconClass": "intercom-svgrepo-com" },
+  { "name": "Security", "iconClass": "security-svgrepo-com" },
+  { "name": "Power backup", "iconClass": "power-button-svgrepo-com" },
+  { "name": "Rainwater harvesting", "iconClass": "rainfall-svgrepo-com" },
+  { "name": "CCTV surveillance", "iconClass": "cctv-svgrepo-com" },
+  { "name": "Lift", "iconClass": "lift-elevator-svgrepo-com" },
+  { "name": "Parking", "iconClass": "parking-location-svgrepo-com" },
+  { "name": "Waste disposal", "iconClass": "rubbish-bin-svgrepo-com" },
+  { "name": "Water storage", "iconClass": "water-svgrepo-com" },
+  { "name": "24x7 water supply", "iconClass": "tap-faucet-svgrepo-com" },
+  { "name": "24x7 power supply", "iconClass": "battery-svgrepo-com" },
+  { "name": "Wi-Fi connectivity", "iconClass": "wifi-logo-svgrepo-com" },
+  { "name": "ATM", "iconClass": "atm-svgrepo-com" },
+  { "name": "Laundry service", "iconClass": "laundry-service-svgrepo-com" },
+  { "name": "Supermarket", "iconClass": "supermarket-market-store-grocery-store-svgrepo-com" },
+  { "name": "Public transportation", "iconClass": "truck-transport-svgrepo-com" },
+  { "name": "Solar panels", "iconClass": "solar-panels-couple-in-sunlight-svgrepo-com" },
+  { "name": "Guest rooms", "iconClass": "guest-svgrepo-com" }
+
+  ],
+  "State": [
+  "Select",
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal"
+  ],
+  "City": [
+    "Select",
+    "Bangalore", 
+    "Kolar", 
+    "Bangarpete", 
+    "Hoskote",   
+    "Chikabalapur",
+    "Mysore",
+    "others"
+  ],
+  "ElectricityConnection": [
+    "Select",
+    "Electricity Board", 
+    "Solar", 
+    "Both", 
+    "None"  
+  ],
+  "SewageConnection": [
+    "Select",
+    "Open", 
+    "Underground", 
+    "None" 
+    
+  ],
+  "BuildingType": [
+    "Select",
+   "Residential",
+    "Commercial",
+    "Industrial",
+    "Mixed-Use",
+    "Institutional",
+    "Government",
+    "Retail",
+    "Healthcare",
+    "Educational",
+    "Hospitality",
+    "Recreational",
+    "Warehouse",
+    "Agricultural",
+    "Other"
+    
+  ],
+  "PropertyType": [
+    "Select",
+    "Office Space",
+    "Retail Shop",
+    "Showroom",
+    "Warehouse",
+    "Industrial Building",
+    "Co-working Space",
+    "Hotel",
+    "Restaurant",
+    "Commercial Land",
+    "Others"
+    
+  ],
+  "PowerBackup": [
+    "Select",
+    "Full", 
+    "DG Backup", 
+    "Need to Arrange" 
+    
+  ],
+  "Lift": [
+    "Select",
+    "None", 
+    "Personal", 
+    "Common" 
+    
+  ],
+  "CommercialParking": [
+    "Select",
+    "None", 
+    "Public and Reserved", 
+    "Public", 
+    "Reserved" 
+    
+  ],
+  "Washroom": [
+    "Select",
+    "Shared", 
+    "Private", 
+    "No Washroom" 
+    
+  ],
+  "WaterStorageFacility": [
+    "Select",
+    "Yes", 
+    "No"
+    
+  ],
+  "Security": [
+    "Select",
+    "Yes", 
+    "No"
+  ],
+  "Wifi": [
+    "Select",
+    "Yes", 
+    "No"
+  ],
+  "PreviousOccupancy": [
+    "Select",
+    "Open", 
+    "Underground", 
+    "None" 
+    
+  ],
+  "FloorType": [
+    "Marble",
+    "Wooden",
+    "Carpet",
+    "Tile",
+    "Vinyl"    
+  ],
+  "OwnershipType": [
+    "Select",
+    "Self Owned", 
+    "On Lease"  
+  ],
+  "LockinPeriod": [
+    "Select",
+    "1", 
+    "2", 
+    "3",
+    "4",
+    "5"     
+  ]
+  
+  
+}
+

@@ -1,0 +1,274 @@
+{
+  "ApartmentType": [
+    {
+      "ID": "1",
+      "Value": "Apartment"
+    },
+    {
+      "ID": "2",
+      "Value": "Independent House/Villa"
+    },
+    {
+      "ID": "3",
+      "Value": "Gated Community Villa"
+    }
+  ],
+  "BHKType": [
+    {
+      "ID": "1",
+      "Value": "1 RK"
+    },
+    {
+      "ID": "2",
+      "Value": "1 BHK"
+    },
+    {
+      "ID": "3",
+      "Value": "2 BHK"
+    },
+    {
+      "ID": "4",
+      "Value": "3 BHK"
+    },
+    {
+      "ID": "5",
+      "Value": "4 BHK"
+    },
+    {
+      "ID": "6",
+      "Value": "4 +BHK"
+    }
+
+  ],
+  "Floor": [
+    {
+      "ID": "1",
+      "Value": "1"
+    },
+    {
+      "ID": "2",
+      "Value": "2"
+    },
+    {
+      "ID": "3",
+      "Value": "3"
+    },
+    {
+      "ID": "4",
+      "Value": "4"
+    },
+    {
+      "ID": "5",
+      "Value": "5"
+    },
+    {
+      "ID": "6",
+      "Value": "6"
+    },
+    {
+      "ID": "7",
+      "Value": "7"
+    },
+    {
+      "ID": "8",
+      "Value": "8"
+    },
+    {
+      "ID": "9",
+      "Value": "9"
+    },
+    {
+      "ID": "10",
+      "Value": "10"
+    }
+
+  ],
+  "PropertyAge": [
+    {
+      "ID": "1",
+      "Value": "Less than a Year"
+    },
+    {
+      "ID": "2",
+      "Value": "1 to 3 year"
+    },
+    {
+      "ID": "3",
+      "Value": "3 to 5 year"
+    },
+    {
+      "ID": "4",
+      "Value": "5 to 10 year"
+    },
+    {
+      "ID": "5",
+      "Value": "More than 10 year"
+    }
+
+  ],
+  "Facing": [
+    {
+      "ID": "1",
+      "Value": "North"
+    },
+    {
+      "ID": "2",
+      "Value": "South"
+    },
+    {
+      "ID": "3",
+      "Value": "East"
+    },
+    {
+      "ID": "4",
+      "Value": "West"
+    },
+    {
+      "ID": "5",
+      "Value": "North-East"
+    },
+    {
+      "ID": "6",
+      "Value": "North-West"
+    },
+    {
+      "ID": "7",
+      "Value": "South-East"
+    },
+    {
+      "ID": "8",
+      "Value": "South-West"
+    },
+    {
+      "ID": "9",
+      "Value": "Dont-Know"
+    }
+  ],
+  "Furnishing": [
+    {
+      "ID": "1",
+      "Value": "Fully furnished"
+    },
+    {
+      "ID": "2",
+      "Value": "Semi-furnished"
+    },
+    {
+      "ID": "3",
+      "Value": "Unfurnished"
+    }
+  ],
+  "Parking": [
+    {
+      "ID": "1",
+      "Value": "Bike"
+    },
+    {
+      "ID": "2",
+      "Value": "Car"
+    },
+    {
+      "ID": "3",
+      "Value": "Both"
+    },
+    {
+      "ID": "4",
+      "Value": "None"
+    }
+  ],
+  "PreferredTenants": [
+    {
+      "ID": "1",
+      "Value": "Anyone"
+    },
+    {
+      "ID": "2",
+      "Value": "Family"
+    },
+    {
+      "ID": "3",
+      "Value": "Bachelor Female"
+    },
+    {
+      "ID": "4",
+      "Value": "Bachelor Male"
+    },
+    {
+      "ID": "5",
+      "Value": "Company"
+    }
+  ],
+  "MonthlyMaintenance": [
+    {
+      "ID": "1",
+      "Value": "Maintenance Included"
+    },
+    {
+      "ID": "2",
+      "Value": "Maintenance Extra"
+    }
+  ],
+  "Bathroom": [
+    {
+      "ID": "1",
+      "Value": "1"
+    },
+    {
+      "ID": "2",
+      "Value": "2"
+    },
+    {
+      "ID": "3",
+      "Value": "3"
+    },
+    {
+      "ID": "4",
+      "Value": "4"
+    },
+    {
+      "ID": "5",
+      "Value": "5"
+    },
+    {
+      "ID": "6",
+      "Value": "5 +"
+    }
+  ],
+  "Balcony": [
+    {
+      "ID": "1",
+      "Value": "1"
+    },
+    {
+      "ID": "2",
+      "Value": "2"
+    },
+    {
+      "ID": "3",
+      "Value": "3"
+    },
+    {
+      "ID": "4",
+      "Value": "4"
+    },
+    {
+      "ID": "5",
+      "Value": "5"
+    },
+    {
+      "ID": "6",
+      "Value": "5 +"
+    }
+  ],
+  "WaterSupply": [
+    {
+      "ID": "1",
+      "Value": "Maintenance Included"
+    },
+    {
+      "ID": "2",
+      "Value": "Maintenance Extra"
+    }
+  ]
+
+}

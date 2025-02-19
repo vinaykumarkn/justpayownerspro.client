@@ -1,0 +1,51 @@
+
+{
+    "navbar": [
+      {
+        "text": "About Us",
+        "url": "/AboutUs"       
+      },
+      {
+        "text": "Property", "url": "/Properties",
+        "submenu": [
+          {
+            "submenuText": "Television",
+            "url": ""
+          },
+          {
+            "submenuText": "Fridge",
+            "url": ""
+          },
+          {
+            "submenuText": "Washing Machine",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "text": "Promoter's", "url": "/Promoters",
+        "submenu": [
+          {
+            "submenuText": "Television",
+            "url": ""
+          },
+          {
+            "submenuText": "Fridge",
+            "url": ""
+          },
+          {
+            "submenuText": "Washing Machine",
+            "url": ""
+          }
+        ]
+      }
+      
+     
+    
+    ],
+    "navbarStatic": [       
+        { "text": "Post Your Property", "url": "/PropertyPost" },
+        { "text": "Log In", "url": "/User/Signin" }
+      
+      ]
+}

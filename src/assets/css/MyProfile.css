@@ -1,0 +1,278 @@
+#tab-section-left .card-body,
+#tab-section-left,
+#tab-section-left .nav-item {
+    padding: 0px !important;
+}
+
+
+    /*for left section*/
+
+    #tab-section-left .list-group-item {
+        width: 100%;
+        padding: 10px;
+        font-weight: 600;
+        display: block;
+        text-align: center;
+        color: white;
+        background-color: #375794;
+        border-bottom: 2px solid #79a2dd;
+        border-radius: 0 !important;
+    }
+
+        #tab-section-left .list-group-item .icon {
+            display: block;
+            width: 25px;
+            margin: 0 auto !important;
+            margin-bottom: 10px;
+            filter: invert(1);
+        }
+
+        #tab-section-left .list-group-item:not(.active):hover .icon,
+        #tab-section-left .list-group-item.active .icon {
+            filter: invert(55%) sepia(89%) saturate(2597%) hue-rotate(195deg) brightness(85%) contrast(90%);
+        }
+
+        #tab-section-left .list-group-item.active,
+        #tab-section-left .list-group-item:not(.active):hover {
+            background-color: white;
+            color: #375794;
+            border: none;
+        }
+
+/*#tab-section-left .list-group-item:not(.active):hover {
+     background-color: white;
+ }
+
+ #tab-section-left .list-group-item.active::before {
+     content: '';
+     position: absolute;
+     left: 100%;
+     border-bottom: 13px solid transparent;
+     border-top: 13px solid transparent;
+     border-left: 10px solid #375794;
+ }*/
+
+/*end for left section*/
+
+/*for right section*/
+
+#tab-section-right .card-header {
+    position: relative;
+    padding: 0px;
+}
+
+    #tab-section-right .card-header .card-title::before {
+        content: "";
+        width: 65px;
+        height: 5px;
+        background-color: #375794;
+        display: block;
+        position: absolute;
+        bottom: -3px;
+    }
+
+#tab-section-right span.input-group-text,
+#tab-section-right .form-select {
+    border-radius: 0px;
+}
+
+#tab-section-right .form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+#tab-section-right .profileSec_fldLbl label.form-label {
+    text-align: end;
+    margin: 8px 12px 0 6px;
+    width: 100px;
+}
+
+#tab-section-right .profileSec_fld {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 13px 0;
+    width: 100%;
+}
+
+    #tab-section-right .profileSec_fld .profileSec_fldLbl {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    #tab-section-right .profileSec_fld .profile_inputSec {
+        height: 40px;
+        margin-left: 20px;
+        width: 400px;
+    }
+
+    #tab-section-right .profileSec_fld .profile_labelSec {
+        color: #909496;
+        display: flex;
+        margin-left: 25px;
+        margin-top: 8px;
+    }
+
+    #tab-section-right .profileSec_fld .profile_inputSec input {
+        height: 40px;
+    }
+
+#tab-section-right .form-select {
+    box-shadow: none !important;
+}
+
+#tab-section-right .input-group:hover input,
+.input-group:hover .form-select {
+    background-color: #f5f7fb;
+}
+
+/*end for right section*/
+
+
+#tab-section-left {
+    background-color: white;
+}
+
+
+#your-properties #property-listing .property-item:hover .bg-white {
+    box-shadow: 10px 10px 20px #24242480 !important;
+    background-color: #375794 !important;
+    color: white !important;
+}
+
+#your-properties #property-listing .property-item:hover .text-muted,
+#your-properties #property-listing .property-item a:hover {
+    color: white !important;
+}
+
+#your-properties #property-listing .property-item:hover .card-footer:last-child {
+    border-color: white !important
+}
+
+#your-properties .btn-green {
+    color: black;
+    background-color: #f5f7fb;
+    border-color: #375794;
+    box-shadow: none;
+}
+
+    #your-properties .btn-green:hover,
+    #your-properties .btn-green.active {
+        background-color: #375794 !important;
+        color: white !important;
+    }
+
+
+#your-properties .property-type-tag {
+    padding: 0px 16px;
+    background: #4fc3f7;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: -13px;
+    color: #fff;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    transform: rotate(-35deg);
+    width: 75px;
+    text-align: center;
+    height: 23px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+    #your-properties .property-type-tag::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 0;
+        border-top: 6px solid #4fc3f7;
+        position: absolute;
+        right: 0px;
+        top: -2px;
+        transform: rotate(14deg);
+    }
+
+    #your-properties .property-type-tag:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-right: 21px solid transparent;
+        border-left: 0;
+        border-top: 6px solid #4fc3f7;
+        position: absolute;
+        left: 1px;
+        top: -4px;
+        transform: rotate(-20deg);
+    }
+
+#your-properties .property-status {
+    padding: 0px 16px;
+    background: limegreen;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    font-size: 11px;
+    font-weight: 700;
+    width: auto;
+    right: -10px;
+    top: 8px;
+}
+
+    #your-properties .property-status::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-right: 10px solid transparent;
+        border-left: 0;
+        border-top: 1em solid #545454;
+        position: absolute;
+        right: 0px;
+        bottom: -1em;
+    }
+
+#property-listing .fa-external-link {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#property-listing .property-item > .rounded {
+    width: 95%;
+    position: relative;
+    background: #daeefa73 !important;
+}
+
+#property-listing .custom-select.request-action {
+    height: 25px;
+    padding: 0 10px;
+    font-size: 14px;
+    width: auto;
+    border: 1px solid limegreen !important;
+    box-shadow: none;
+    color: limegreen !important;
+    font-weight: 500;
+    padding-bottom: 2px;
+}
+
+#manage-account .icon img {
+    width: 25px;
+    height: 25px;
+}
+
+#manage-account span.icon {
+    display: block;
+    filter: invert(1);
+}
+
+#manage-account .list-group-item {
+    text-align: center;
+    background-color: #375794;
+    border-bottom: 2px solid #79a2dd;
+}
