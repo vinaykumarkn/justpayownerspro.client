@@ -170,7 +170,7 @@ const PropertyAmenitiesDetails = ({ tabItems, setSideNavTabs, isSale, isCommerci
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="card-body p-3">
-                <div className="row">
+                <div id="property-amenities-details" className="row">
                     {/* for residential */}
                     {!islandorPlot && !isCommercial && jsonPropertyControls?.Amenities?.map((item, index) => {
                         <label className="control-label">Select the available amenities</label>

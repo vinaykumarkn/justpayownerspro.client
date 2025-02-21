@@ -21,7 +21,7 @@ function MyNewProperty() {
                         <div className="page-content-block">
                             <div className="col-md-12">
                                 
-                                    <div className="container">
+                                    <div className="container card">
                                         {/*  <SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
                                         <div className="row row-cards">
                                             <MyDashboardNav />

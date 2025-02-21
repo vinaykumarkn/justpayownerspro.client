@@ -6,6 +6,7 @@ import { generatePath, useNavigate, useParams } from 'react-router-dom'
 import { PropertySubmitButton } from '../../components'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendarAlt } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import JPOapi from '../../common';
 import PropertyModel from '../../common/property/PropertyModel';
@@ -330,7 +331,12 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
 
                                 <Controller className="form-control" control={control} name="AvailableFrom" render={({ field }) => (
                                     <DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} minDate={new Date()}
-                                        value={rentalDetails?.AvailableFrom} {...field} selected={rentalDetails?.AvailableFrom} name='AvailableFrom' id='AvailableFrom' />
+                                        value={rentalDetails?.AvailableFrom} {...field} selected={rentalDetails?.AvailableFrom} name='AvailableFrom' customInput={
+                                            <div className="custom-input">
+                                              <input {...field} value={rentalDetails?.AvailableFrom} readOnly />
+                                              <FaCalendarAlt className="calendar-icon" />
+                                            </div>
+                                          } id='AvailableFrom' />
                                 )} />
                                 {/* <DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} value={select.AvailableFrom} {...register("AvailableFrom", { required: true })} selected={select.AvailableFrom} name='AvailableFrom' id='AvailableFrom' /> */}
                             </div>
@@ -385,7 +391,7 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
                         <div className="col-sm-6 col-md-4">
                             <div className="form-group">
                                 <label className="control-label">Preferred Tenants<span className="form-required">*</span></label>
-                                <div className="input-group mb-0">
+                                <div id="prefered-tenents" className="input-group mb-0">
                                     <div className="custom-controls-stacked">
                                         {jsonPropertyControls?.PreferredTenants?.map((option, index) => (
                                             <label className="custom-control custom-checkbox" key={index}  >

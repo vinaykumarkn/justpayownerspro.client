@@ -7,7 +7,7 @@ import JPOapi from "../common";
 import { useSelector } from "react-redux";
 
 import {
-    MyDashboardHighlights   
+    MyDashboardHighlights
 } from "../components";
 
 function MyDashboard() {
@@ -36,9 +36,9 @@ function MyDashboard() {
                 setDraftAds(data.filter(ad => ad.status === "Draft"));
                 setApprovedAds(data.filter(ad => ad.status === "Approved"));
                 setRejectAds(data.filter(ad => ad.status === "Rejected"));
-                
 
-                
+
+
             })
             .catch((error) => {
                 console.error(error);
@@ -68,190 +68,189 @@ function MyDashboard() {
                         <div className="col-lg-12 col-sm-12 col-12">
                             <div className="page-content-block">
                                 <div className="col-md-12">
-                                    <div className="container">
+                                    <div className="container card">
                                         <div className="row row-cards">
                                             <MyDashboardNav />
                                             <div className="col-lg-10" id="tab-section-right">
-                                                <div className="card m-0 p-1">
-                                                    <div className="card-body row">
-                                                        <h3 className="widget-subtitle">My Dashboard</h3>
+                                                <div className="card m-0 p-1 border-0">
+                                                    <div className="card-header">
+                                                        <h2 className="card-title">My Dashboard</h2>
+                                                    </div>
+                                                    <div className="card-body row ">
+                                                        <div className="row justify-content-center">
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Your Free listing
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {advertiseData?.length}  <span>/ {currentUser?.propertyCount} remaining</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape16.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Draft
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {draftAds?.length} <span>/ {currentUser?.propertyCount} listing</span>
+                                                                        </div>
+                                                                        {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape17.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                                        <div className="card-body row ">
-                                                            <div className="row justify-content-center">
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Your Free listing
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {advertiseData?.length}  <span>/ {currentUser?.propertyCount} remaining</span>
-                                                                            </div>
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Pending
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {pendingAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
                                                                         </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape16.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
+                                                                        {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape17.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Draft 
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {draftAds?.length} <span>/ {currentUser?.propertyCount} listing</span>
-                                                                            </div>
-                                                                            {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
-                                                                        </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape17.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Pending 
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {pendingAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
-                                                                            </div>
-                                                                            {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
-                                                                        </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape17.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                            </div>
 
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Approved
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {approvedAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
-                                                                            </div>
-                                                                            {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Approved
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {approvedAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
                                                                         </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape17.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
+                                                                        {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape17.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
                                                                     </div>
                                                                 </div>
+                                                            </div>
 
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Rejected
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {rejectedAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
-                                                                            </div>
-                                                                            {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Rejected
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {rejectedAds?.length}  <span>/ {currentUser?.propertyCount} listing</span>
                                                                         </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape17.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
+                                                                        {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape17.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
                                                                     </div>
                                                                 </div>
-                                                                <div className="col-xl-6 col-lg-6 col-md-6">
-                                                                    <div
-                                                                        className="pricing-box1 wow zoomIn"
-                                                                        data-wow-delay=".3s"
-                                                                        style={{
-                                                                            visibility: "visible",
-                                                                            animationDelay: "0.3s",
-                                                                            animationName: "zoomIn",
-                                                                        }}
-                                                                    >
-                                                                        <div className="heading-title">
-                                                                            <h3 className="item-title">
-                                                                                Public Enquiries
-                                                                            </h3>
-                                                                            <div className="item-price">
-                                                                                {publicEnquiries?.length}  <span>/ {currentUser?.propertyCount} listing</span>
-                                                                            </div>
-                                                                            {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                            </div>
+                                                            <div className="col-xl-4 col-lg-4 col-md-6">
+                                                                <div
+                                                                    className="pricing-box1 wow zoomIn"
+                                                                    data-wow-delay=".3s"
+                                                                    style={{
+                                                                        visibility: "visible",
+                                                                        animationDelay: "0.3s",
+                                                                        animationName: "zoomIn",
+                                                                    }}
+                                                                >
+                                                                    <div className="heading-title">
+                                                                        <h3 className="item-title">
+                                                                            Public Enquiries
+                                                                        </h3>
+                                                                        <div className="item-price">
+                                                                            {publicEnquiries?.length}  <span>/ {currentUser?.propertyCount} listing</span>
                                                                         </div>
-                                                                        <div className="shape-img1">
-                                                                            <img
-                                                                                src="/img/figure/shape17.svg"
-                                                                                alt="shape"
-                                                                                width="56"
-                                                                                height="64"
-                                                                            />
-                                                                        </div>
+                                                                        {/* <p>Shen an unknown printer took a galley  of type and scrambled</p>*/}
+                                                                    </div>
+                                                                    <div className="shape-img1">
+                                                                        <img
+                                                                            src="/img/figure/shape17.svg"
+                                                                            alt="shape"
+                                                                            width="56"
+                                                                            height="64"
+                                                                        />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -261,7 +260,7 @@ function MyDashboard() {
 
                                                 <MyDashboardHighlights
                                                     pickedData={advertiseData}
-                                                    user={currentUser}                                              
+                                                    user={currentUser}
                                                     template="MyDashboard"
                                                 />
 

@@ -82,6 +82,7 @@
 #tab-section-right span.input-group-text,
 #tab-section-right .form-select {
     border-radius: 0px;
+    height: 100%;
 }
 
 #tab-section-right .form-group {
@@ -151,6 +152,23 @@
     padding: 6px;
 }
 
+#AvailableFrom {
+    display: flex;
+    align-items: center;
+}
+
+#tab-section-right  .calendar-icon {
+    margin: 0 auto;
+}
+
+#tab-section-right .react-datepicker-wrapper input[name="AvailableFrom"]{
+    width: 90%;
+}
+
+#tab-section-right .react-datepicker-wrapper {
+    width: 100%;
+}
+
     #tab-section-right .react-datepicker-wrapper input:focus {
         border-color: #1991eb !important;
     }
@@ -181,6 +199,29 @@
 
 #tab-section-right select {
     --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='gray' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+#property-amenities-details .custom-control.custom-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+#property-amenities-details .custom-control.custom-checkbox .custom-control-label {
+    padding-right: 0px !important;
+}
+
+#gallery-upload-btn{
+    background-color: #375794;
+}
+
+#property-gallery-upload .card-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+#property-amenities-details .custom-control.custom-checkbox img {
+    margin-right: 10px;
 }
 
 /*end for right section*/
@@ -447,6 +488,8 @@ input.form-check-input {
 
 .card-footer button {
     margin-right: 15px;
+    background-color: #375794;
+    border:none !important;
 }
 
 
@@ -472,6 +515,10 @@ input.form-check-input {
 .propCategory .heading-7 {
     font-size: 14px !important;
     font-weight: 600 !important;
+}
+
+#tab-section-right #prefered-tenents .custom-control-label {
+    padding-right: 0px !important;
 }
 
 /*for post-property-for-sale-rent page*/

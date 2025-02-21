@@ -224,7 +224,7 @@ const PropertyGalleryUpload = ({ tabItems, setSideNavTabs, isSale, isCommercial,
                                                 <strong></strong>
                                             </div>
                                             <div className="mx-auto">
-                                                <button type="button" className="btn btn-primary" style={isDragging ? { color: "red" } : null} onClick={onImageUpload} {...dragProps}><i className="fe fe-plus"></i> Click or Drop here</button>
+                                                <button id="gallery-upload-btn" type="button" className="btn btn-primary" style={isDragging ? { color: "red" } : null} onClick={onImageUpload} {...dragProps}><i className="fe fe-plus"></i> Click or Drop here</button>
                                             </div>
                                         </div>
                                     </div>

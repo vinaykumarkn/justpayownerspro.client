@@ -135,71 +135,68 @@ const MyProperties = function () {
                             <div className="col-md-12 ">
 
 
-                                <div className="container">
+                                <div className="container card">
                                     {/*<SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
                                     <div className="row row-cards">
                                         <MyDashboardNav />
                                         <div className="col-lg-10" id="tab-section-right">
-                                            <div className="card m-0 p-1">
-                                                <div className="card-body row">
-                                                    <h3 className="widget-subtitle">You have already posted {advertiseData.length} properties on Justpayowners</h3>
+                                            <div className="card m-0 p-1 border-0">
+                                                <div className="card-header">
+                                                    <h3 className="card-title">You have already posted {advertiseData.length} properties on Justpayowners</h3>
+                                                </div>
+                                                <div className="widget widget-taglist pb-0" >
+                                                    <ul className="tag-list">
+                                                        <li><Link onClick={(e) => handleOptionChange("All")} className={option == "All" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>All</Link></li>
+                                                        <li><Link onClick={(e) => handleOptionChange("Residential Rent")} className={option == "Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Residential-Rent</Link></li>
+                                                        <li><Link onClick={(e) => handleOptionChange("Residential Sale")} className={option == "Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Residential-Sale</Link></li>
+                                                        <li><Link onClick={(e) => handleOptionChange("Commercial Rent")} className={option == "Commercial Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Rent</Link></li>
+                                                        <li><Link onClick={(e) => handleOptionChange("Commercial Sale")} className={option == "Commercial Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Sale</Link></li>
+                                                        <li><Link onClick={(e) => handleOptionChange("LandOrPlot Sale")} className={option == "LandOrPlot Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Plot-Sale  </Link></li>
 
-                                                    <div className="widget widget-taglist" >
-                                                        <ul className="tag-list">
-                                                            <li><Link onClick={(e) => handleOptionChange("All")} className={option == "All" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>All</Link></li>
-                                                            <li><Link onClick={(e) => handleOptionChange("Residential Rent")} className={option == "Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Residential-Rent</Link></li>
-                                                            <li><Link onClick={(e) => handleOptionChange("Residential Sale")} className={option == "Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Residential-Sale</Link></li>
-                                                            <li><Link onClick={(e) => handleOptionChange("Commercial Rent")} className={option == "Commercial Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Rent</Link></li>
-                                                            <li><Link onClick={(e) => handleOptionChange("Commercial Sale")} className={option == "Commercial Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Sale</Link></li>
-                                                            <li><Link onClick={(e) => handleOptionChange("LandOrPlot Sale")} className={option == "LandOrPlot Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Plot-Sale  </Link></li>
-
-                                                        </ul>
-                                                    </div>
-
-                                                    
+                                                    </ul>
                                                 </div>
                                             </div>
-
-                                            <div className="col-lg-12">
-                                                <div className="property-wrap-9">
-                                                    <div className="tab-style-1 tab-style-3">
-                                                        <div className="tab-content" id="myTabContent">
-                                                            <div className="tab-pane fade show active" id="mylisting" role="tabpanel">
-                                                                <div className="row">
-
-
-                                                                    <>
-
-                                                                        {advertiseData.length === 0 ? (
-                                                                            <div>No properties found at the moment.</div>
-                                                                        ) : (filteredData.length > 0 ? (
-                                                                            filteredData.map((item, index) => (
-
-                                                                                <article key={index} id={"article" + index}>
-                                                                                    <PropertyList listing={item} Category={item.propertyType} AdType={item.AdType} isUSer={userId} />
-                                                                                </article>
-
-                                                                            ))
-                                                                        ) : (
-                                                                            <div>No data found</div>
-                                                                        )
-                                                                        )}
-
-                                                                    </>
+                                            <div className="card-body">
+                                                <div className="col-lg-12">
+                                                    <div className="property-wrap-9">
+                                                        <div className="tab-style-1 tab-style-3">
+                                                            <div className="tab-content" id="myTabContent">
+                                                                <div className="tab-pane fade show active" id="mylisting" role="tabpanel">
+                                                                    <div className="row">
 
 
+                                                                        <>
+
+                                                                            {advertiseData.length === 0 ? (
+                                                                                <div>No properties found at the moment.</div>
+                                                                            ) : (filteredData.length > 0 ? (
+                                                                                filteredData.map((item, index) => (
+
+                                                                                    <article key={index} id={"article" + index}>
+                                                                                        <PropertyList listing={item} Category={item.propertyType} AdType={item.AdType} isUSer={userId} />
+                                                                                    </article>
+
+                                                                                ))
+                                                                            ) : (
+                                                                                <div>No data found</div>
+                                                                            )
+                                                                            )}
+
+                                                                        </>
 
 
 
 
+
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
-
-
 
 
                                         </div>

@@ -104,20 +104,16 @@ const MyFavorites = function () {
 
 
 
-                                <div className="container">
+                                <div className="container card">
                                     {/* <SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
                                     <div className="row row-cards">
                                         <MyDashboardNav />
                                         <div className="col-lg-10" id="tab-section-right">
-                                            <div className="card m-0 p-1">
-                                                <div className="card-body row">
-                                                    <h3 className="widget-subtitle">You have already posted {advertiseData.length} properties on Justpayowners</h3>
-
-
-
-                                                    <div className="widget widget-taglist" >
-
-
+                                            <div className="card m-0 p-1 border-0">
+                                                <div className="card-header">
+                                                    <h3 className="card-title">You have already posted {advertiseData.length} properties on Justpayowners</h3>
+                                                </div>
+                                                <div className="widget widget-taglist pb-0" >
                                                         <ul className="tag-list">
                                                             <li><Link onClick={(e) => handleOptionChange("All")} className={option == "All" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>All</Link></li>
                                                             <li>  <Link onClick={(e) => handleOptionChange("Rent")} className={option == "Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Residential-Rent</Link></li>
@@ -125,58 +121,48 @@ const MyFavorites = function () {
                                                             <li>  <Link onClick={(e) => handleOptionChange("Commercial Rent")} className={option == "Commercial Rent" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Rent</Link></li>
                                                             <li><Link onClick={(e) => handleOptionChange("Commercial Sale")} className={option == "Commercial Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Commercial-Sale</Link></li>
                                                             <li><Link onClick={(e) => handleOptionChange("LandOrPlot Sale")} className={option == "LandOrPlot Sale" ? "btn btn-sm btn-outline-primary active" : "btn btn-sm btn-outline-primary"}>Plot-Sale  </Link></li>
-
                                                         </ul>
-
-
-
-
-
                                                     </div>
+                                                <div className="card-body">
+                                                    <div id="property-listing" className="row ">
+                                                        {advertiseData.length === 0 ? (
+                                                            <div>No properties found at the moment.</div>
+                                                        ) : (filteredData.length > 0 ? (
+                                                            filteredData.map((item, index) => (
+                                                                <div className="col-md-6 property-item" key={index}>
+                                                                    <div className="row p-2 bg-white border rounded">
+                                                                        <div className="property-type-tag"><p>{item?.adType}</p></div>
+                                                                        <div className="property-status">{item?.status}</div>
+                                                                        <div className="col-md-4 mt-1"><img className="img-fluid img-responsive rounded product-image" src={renderPropertyImage(item)} /></div>
+                                                                        <div className="col-md-8 mt-1">
+                                                                            <div className="d-flex flex-row">
+                                                                                <div className="media-body">
+                                                                                    {item.propertyTitle != null && item.propertyTitle != "" && <h5 className="mb-2">
+                                                                                        <a target="_blank" href={"/property-detail/" + item.advertiseID} className="text-color">{item.propertyTitle}<i className="fa fa-external-link"></i></a></h5>}
 
-                                                    
-                                                </div>
-                                            </div>
-
-                                            <div className="card-body">
-                                                <div id="property-listing" className="row ">
-                                                    {advertiseData.length === 0 ? (
-                                                        <div>No properties found at the moment.</div>
-                                                    ) : (filteredData.length > 0 ? (
-                                                        filteredData.map((item, index) => (
-                                                            <div className="col-md-6 property-item" key={index}>
-                                                                <div className="row p-2 bg-white border rounded">
-                                                                    <div className="property-type-tag"><p>{item?.adType}</p></div>
-                                                                    <div className="property-status">{item?.status}</div>
-                                                                    <div className="col-md-4 mt-1"><img className="img-fluid img-responsive rounded product-image" src={renderPropertyImage(item)} /></div>
-                                                                    <div className="col-md-8 mt-1">
-                                                                        <div className="d-flex flex-row">
-                                                                            <div className="media-body">
-                                                                                {item.propertyTitle != null && item.propertyTitle != "" && <h5 className="mb-2">
-                                                                                    <a target="_blank" href={"/property-detail/" + item.advertiseID} className="text-color">{item.propertyTitle}<i className="fa fa-external-link"></i></a></h5>}
-
-                                                                                <small className="text-muted">{item.city}, {item.state}</small>
-                                                                                <p className="text-muted mb-1"><small>price:</small><small><b> 31.00 Lakh - Banglore</b></small></p>
+                                                                                    <small className="text-muted">{item.city}, {item.state}</small>
+                                                                                    <p className="text-muted mb-1"><small>price:</small><small><b> 31.00 Lakh - Banglore</b></small></p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="d-flex justify-content-between align-items-center mt-3">
+                                                                                <button type="button" className="btn btn-outline-primary btn-sm mr-4 px-4" onClick={() => handleEditBtn(item)}>
+                                                                                    Edit
+                                                                                </button>
+                                                                                <select name="Request Action" className="form-control custom-select request-action"><option value="">Request Action</option><option value="activate">Activate Property</option><option value="deactive">Dectivate Property</option></select>
                                                                             </div>
                                                                         </div>
-                                                                        <div className="d-flex justify-content-between align-items-center mt-3">
-                                                                            <button type="button" className="btn btn-outline-primary btn-sm mr-4 px-4" onClick={() => handleEditBtn(item)}>
-                                                                                Edit
-                                                                            </button>
-                                                                            <select name="Request Action" className="form-control custom-select request-action"><option value="">Request Action</option><option value="activate">Activate Property</option><option value="deactive">Dectivate Property</option></select>
+                                                                        <div className="card-footer text-right mt-3">
+                                                                            <button type="submit" className="btn btn-primary">Make request</button>
                                                                         </div>
-                                                                    </div>
-                                                                    <div className="card-footer text-right mt-3">
-                                                                        <button type="submit" className="btn btn-primary">Make request</button>
-                                                                    </div>
 
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        ))
-                                                    ) : (
-                                                        <div>No data found</div>
-                                                    )
-                                                    )}
+                                                            ))
+                                                        ) : (
+                                                            <div>No data found</div>
+                                                        )
+                                                        )}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

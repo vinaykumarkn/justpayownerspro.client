@@ -92,16 +92,16 @@ const MyProfile = function () {
                             <div className="col-md-12">
 
 
-                                <div className="container">
+                                <div className="container card">
                                     {/*<SectionTitle title="Advertise With Us" path="/AdvertiseWithUs" type="breadcrumb" />*/}
 
                                         <div className="row row-cards">
                                             <MyDashboardNav />
                                             <div className="col-lg-10" id="tab-section-right">
-                                                <div className="card m-0 p-4">
-                                                    <div className="card-body row">
-                                                        <h3 className="widget-subtitle">Edit Your profile</h3>   
-                                                 
+                                                <div className="card m-0 p-4 border-0">
+                                                    <div className="card-header">
+                                                        <h3 className="card-title">Edit Your profile</h3>   
+                                                        </div>
 
                                                  
                                                     <div className="card-body ">
@@ -130,7 +130,7 @@ const MyProfile = function () {
 
                                                         </form>
                                                         </div>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
