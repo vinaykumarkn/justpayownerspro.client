@@ -157,11 +157,11 @@
     align-items: center;
 }
 
-#tab-section-right  .calendar-icon {
+#tab-section-right .calendar-icon {
     margin: 0 auto;
 }
 
-#tab-section-right .react-datepicker-wrapper input[name="AvailableFrom"]{
+#tab-section-right .react-datepicker-wrapper input[name="AvailableFrom"] {
     width: 90%;
 }
 
@@ -173,15 +173,15 @@
         border-color: #1991eb !important;
     }
 
-#tab-section-right .react-datepicker-wrapper input,
-#tab-section-right .form-control,
-#tab-section-right .custom-control-label,
-#tab-section-right .form-select,
-#tab-section-right .form-select option {
-    color: gray !important;
-    font-size: 13px !important;
-    box-shadow: none !important;
-}
+    #tab-section-right .react-datepicker-wrapper input,
+    #tab-section-right .form-control,
+    #tab-section-right .custom-control-label,
+    #tab-section-right .form-select,
+    #tab-section-right .form-select option {
+        color: gray !important;
+        font-size: 13px !important;
+        box-shadow: none !important;
+    }
 
 #tab-section-right .custom-radio .custom-control-label::before,
 #tab-section-right .custom-radio .custom-control-label::after,
@@ -206,11 +206,11 @@
     align-items: center;
 }
 
-#property-amenities-details .custom-control.custom-checkbox .custom-control-label {
-    padding-right: 0px !important;
-}
+    #property-amenities-details .custom-control.custom-checkbox .custom-control-label {
+        padding-right: 0px !important;
+    }
 
-#gallery-upload-btn{
+#gallery-upload-btn {
     background-color: #375794;
 }
 
@@ -489,7 +489,7 @@ input.form-check-input {
 .card-footer button {
     margin-right: 15px;
     background-color: #375794;
-    border:none !important;
+    border: none !important;
 }
 
 
