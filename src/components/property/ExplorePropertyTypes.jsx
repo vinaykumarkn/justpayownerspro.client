@@ -18,7 +18,16 @@ const ExplorePropertyTypes = ({ propertyType }) => {
             console.log("Fetched ExplorePropertyTypes data from localStorage.");
             try {
                 const parsedData = JSON.parse(storedData); // FIXED: No need to parse each item
-                setPickedData(parsedData);
+                console.log(parsedData)
+
+                const parsedArray = parsedData.map(item => {
+                    const parsedItem = JSON.parse(item); // Parse the string to JSON object
+                    const { type, iconClass, Name, Order } = parsedItem; // Destructure the object
+                    return { type, iconClass, Name, Order }; // Return the destructured object
+                });
+
+
+                setPickedData(parsedArray);
             } catch (error) {
                 console.error("Error parsing stored data:", error);
                 setPickedData([]);
@@ -29,7 +38,15 @@ const ExplorePropertyTypes = ({ propertyType }) => {
                 .then((res) => {
                     if (res && Array.isArray(res.ExploreProperty)) {
                         localStorage.setItem(storageKey, JSON.stringify(res.ExploreProperty)); // Store as JSON
-                        setPickedData(res.ExploreProperty);
+                        const parsedData = JSON.parse(localStorage.getItem(storageKey)); // FIXED: No need to parse each item
+                        const parsedArray = parsedData.map(item => {
+                            const parsedItem = JSON.parse(item); // Parse the string to JSON object
+                            const { type, iconClass, Name, Order } = parsedItem; // Destructure the object
+                            return { type, iconClass, Name, Order }; // Return the destructured object
+                        });
+
+
+                        setPickedData(parsedArray);
                     } else {
                         console.error("Invalid API response for ExplorePropertyTypes");
                         setPickedData([]);

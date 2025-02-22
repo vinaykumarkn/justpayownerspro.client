@@ -140,7 +140,7 @@ const LatestProperties = ({ TabTitle, property }) => {
                         </div>
                     </div>
                 </div>
-                 <div className="row justify-content-center">
+                 <div className="row">
                     {filteredData.map((item, index) => (
                         <div className="col-xl-4 col-lg-6 col-md-6" key={index}  >
                             <div className={`property-box2 wow fadeInUp animated`} data-wow-delay={item.delay}>

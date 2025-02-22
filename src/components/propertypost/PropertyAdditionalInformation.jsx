@@ -121,6 +121,34 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
         }
     }
 
+    // Function to mask email
+    const maskEmail = (email) => {
+        const emailParts = email.split('@');
+        const localPart = emailParts[0];
+        const domainPart = emailParts[1];
+
+        // Mask the local part (show only first letter and last 2 letters)
+        const maskedLocal = localPart.length > 3
+            ? `${localPart[0]}xxx${localPart[localPart.length - 1]}`
+            : "xxx";
+
+        return `${maskedLocal}@${domainPart}`;
+    };
+
+    // Function to mask mobile number
+    const maskMobileNumber = (mobileNumber) => {
+        // Remove spaces, dashes, or any unwanted characters
+        const cleanNumber = mobileNumber.replace(/\D/g, ''); // Remove all non-digit characters (if any)
+
+        // Check if the mobile number is valid and has 10 digits
+        if (cleanNumber.length === 10) {
+            // Mask the middle part of the number (e.g., 9876543210 becomes 987******10)
+            return `${cleanNumber.slice(0, 3)}******${cleanNumber.slice(7)}`;
+        } else {
+            return 'Invalid mobile number format';
+        }
+    };
+
     const onSubmit = handleSubmit(async (data) => {
         const propertyDataVal = JSON.parse(propertyData.PropertyObject || propertyData.propertyObject);
         console.log(propertyDataVal);
@@ -129,14 +157,26 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
         console.log(addInfoObj);
 
         const formData = PropertyModel.properties;
-        formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...addInfoObj });
-        formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+        //formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...addInfoObj });
+        //formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+
+        formData.PropertyObject = JSON.stringify({
+            ...propertyDataVal,
+            ...addInfoObj,
+            userInfo: {
+                "name": currentUser?.name,
+                "mobileNumber": maskMobileNumber(currentUser?.mobileNumber),
+                "email": maskEmail(currentUser?.email),
+                "pic": currentUser?.pic !== undefined ? currentUser?.pic : DefaultuserImg
+            }
+        });
+
         formData.advertiseID = params.guid;
         formData.adType = isSale ? "Sale" : "Rent";
         formData.propertyType = islandorPlot ? "LandOrPlot Sale" : isCommercial ? (isSale ? "Commercial Sale" : "Commercial Rent") : isSale ? "Residential Sale" : "Residential Rent";
         formData.userID = currentUser.id;
         formData.isActive = false;
-        formData.status = "Pending";
+        formData.status = "Draft";
         formData.PropertyTitle = propertyData.propertyTitle;
         formData.listingStatus = "Listed";
 
@@ -286,7 +326,7 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
                                         <div className="col-12">
                                             <div className="mb-3">
                                                 <div className="form-label">Ideal For</div>
-                                                <select type="text" className="form-select tomselected ts-hidden-accessible" id="select-states" value="" multiple="multiple" tabindex="-1">
+                                                <select type="text" className="form-select tomselected ts-hidden-accessible" id="select-states" value="" multiple="multiple" tabIndex="-1">
                                                     <option value="AL">Alabama</option>
                                                     <option value="AK">Alaska</option>
                                                     <option value="AR">Arkansas</option>
@@ -345,7 +385,7 @@ const PropertyAdditionalInformation = ({ tabItems, setSideNavTabs, isSale, isCom
                                                         <div data-value="AZ" className="item" data-ts-item="">Arizona</div>
                                                         <div data-value="SC" className="item" data-ts-item="">South Carolina</div>
                                                         <div data-value="WY" className="item" data-ts-item="">Wyoming</div>
-                                                        <input tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-states-ts-dropdown"
+                                                        <input tabIndex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-states-ts-dropdown"
                                                             id="select-states-ts-control" type="select-multiple" /></div></div>
                                             </div>
                                         </div>

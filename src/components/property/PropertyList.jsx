@@ -26,15 +26,65 @@ const slides = [
         link: 'https://www.radiustheme.com/demo/wordpress/themes/homlisti/property/northwest-office-space/'
     }
 ];
+
+
+
+
 const PropertyList = ({ listing, Category, AdType, isUSer }) => {
+
+
+    const [propertyObject, setPropertyObject] = useState({});  // Default state is an empty object
 
     const [heart, setHeart] = useState(false);
     const { saveListings } = useSelector(state => state.savedListing);
     const { currentUser } = useSelector(state => state.user);
-    const propertyObject = useState(JSON.parse(listing.PropertyObject || listing.propertyObject));
+       
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log(listing);
+   
+
+   // console.log("-----------");
+   // console.log(listing);
+
+    //const propertyData = listing.propertyObject;
+
+   // const propertyObject = useState(JSON.parse(propertyData));
+
+
+    //console.log(propertyObject);
+
+
+
+    useEffect(() => {
+        console.log("-----------");
+        console.log(listing);
+        try {
+            const propertyData = listing.PropertyObject || listing.propertyObject;
+            if (propertyData) {
+                console.log(propertyData);
+                setPropertyObject(JSON.parse(propertyData));
+            } else {
+                setPropertyObject({});  // Fallback to empty object if both are null or undefined
+            }
+        } catch (error) {
+            console.error("Error parsing property object:", error);
+            setPropertyObject({});  // Fallback to empty object in case of a parse error
+        }
+
+        if (currentUser) {
+            const isSaved = saveListings.some(saveListing => saveListing._id === _id);
+            if (isSaved) {
+                setHeart(true);
+            } else {
+                setHeart(false);
+            }
+        }
+        else {
+            dispatch(clearSavedListing())
+        }
+    }, [listing]);
+
 
     const handleSaveListings = (id) => {
         if (currentUser && currentUser.email) {
@@ -53,19 +103,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
             navigate('/login');
         }
     };
-    useEffect(() => {
-        if (currentUser) {
-            const isSaved = saveListings.some(saveListing => saveListing._id === _id);
-            if (isSaved) {
-                setHeart(true);
-            } else {
-                setHeart(false);
-            }
-        }
-        else {
-            dispatch(clearSavedListing())
-        }
-    }, []);
+   
 
 
     const GetPropertyTitleUser = (propertyObject) => {
@@ -75,7 +113,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
     }
 
     const renderPropertyImage = (propertyObject) => {
-        const galleryDetails = propertyObject[0]?.GalleryDetails;
+        const galleryDetails = propertyObject?.GalleryDetails;
 
         /*const galleryDetails = JSON.parse(item?.propertyData)?.GalleryDetails;*/
         if (galleryDetails && galleryDetails.length > 0) {
@@ -89,23 +127,23 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
         let propertyTitle = "";
         switch (Category) {
             case "Residential Rent":
-                const rentDetails = propertyObject[0]?.property_details;
-                propertyTitle = `${rentDetails?.BHKType} ${rentDetails?.ApartmentType.replace("/", " or ")} For Rent in ${propertyObject[0]?.LocalityDetails?.city}`;
+                const rentDetails = propertyObject?.property_details;
+                propertyTitle = `${rentDetails?.BHKType} ${rentDetails?.ApartmentType.replace("/", " or ")} For Rent in ${propertyObject?.LocalityDetails?.city}`;
                 break;
             case "Residential Sale":
-                const saleDetails = propertyObject[0]?.property_details;
-                propertyTitle = `${saleDetails?.BHKType} ${saleDetails?.ApartmentType.replace("/", "-")} For Sale in ${propertyObject[0]?.LocalityDetails?.city}`;
+                const saleDetails = propertyObject?.property_details;
+                propertyTitle = `${saleDetails?.BHKType} ${saleDetails?.ApartmentType.replace("/", "-")} For Sale in ${propertyObject?.LocalityDetails?.city}`;
                 break;
             case "Commercial Rent":
-                const commercialRentDetails = propertyObject[0]?.property_details;
-                propertyTitle = `${commercialRentDetails?.PropertyType} For Rent in ${propertyObject[0]?.LocalityDetails?.city}`;
+                const commercialRentDetails = propertyObject?.property_details;
+                propertyTitle = `${commercialRentDetails?.PropertyType} For Rent in ${propertyObject?.LocalityDetails?.city}`;
                 break;
             case "Commercial Sale":
-                const commercialSaleDetails = propertyObject[0]?.property_details;
-                propertyTitle = `${commercialSaleDetails?.PropertyType} For Sale in ${propertyObject[0]?.LocalityDetails?.city}`;
+                const commercialSaleDetails = propertyObject?.property_details;
+                propertyTitle = `${commercialSaleDetails?.PropertyType} For Sale in ${propertyObject?.LocalityDetails?.city}`;
                 break;
             case "LandOrPlot Sale":
-                propertyTitle = `Plot For Sale in ${propertyObject[0]?.LocalityDetails?.city}`;
+                propertyTitle = `Plot For Sale in ${propertyObject?.LocalityDetails?.city}`;
                 break;
         }
         return propertyTitle;
@@ -176,7 +214,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-img">
                     <a href="#">
-                        <img src={renderPropertyImage(listing)} alt="blog" width="250" height="200" />
+                        <img src={renderPropertyImage(propertyObject)} alt="blog" width="250" height="200" />
                     </a>
                     <div className="item-category-box1">
                         <div className="item-category">For Rent</div>
@@ -195,7 +233,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-content item-content-property">
                     <div className="item-category10">
-                        {propertyObject[0]?.property_details?.ApartmentType}
+                        {propertyObject?.property_details?.ApartmentType}
                     </div>
                     <div className="react-icon react-icon-2">
 
@@ -223,28 +261,29 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                     </div>
                     <div className="verified-area" onClick={handleClick} >
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a>
-                            <i class="fa fa-external-link"></i>
+                            <i className="fa fa-external-link"></i>
                         </h3>
                     </div>
                     <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success"> {listing.propertyType}</span>
                         <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
-                        <span className="badge rtcl-badge-_top">Posted : {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")}</span>
-                        <span className="badge rtcl-badge-_top">Builtup Area: {propertyObject[0]?.property_details?.builtUpArea} sqft</span>
+                        <span className="badge rtcl-badge-_top">Posted : {moment(listing.createdDate).format("DD-MMM-YYYY")}</span>
+                        <span className="badge rtcl-badge-_top">Builtup Area: {propertyObject?.property_details?.builtUpArea} sqft</span>
 
                     </div>
-                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
+                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject?.LocalityDetails?.city},{propertyObject?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.BHKType} </p><p className="heading-6" >Apartment Type</p></div></li>
-                            <li><i className="fas fa-users icon"></i>   <div><p className="heading-7"> {propertyObject[0]?.RentalDetails?.PreferredTenants} </p><p className="heading-6">Preferred Tenant</p></div> </li>
-                            <li><i className="fas fa-hourglass-half"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.PropertyAge} </p><p className="heading-6">Property Age</p></div> </li>
+                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject?.property_details?.BHKType} </p><p className="heading-6" >Apartment Type</p></div></li>
+                            <li><i className="fas fa-users icon"></i>   <div><p className="heading-7"> {propertyObject?.RentalDetails?.PreferredTenants} </p><p className="heading-6">Preferred Tenant</p></div> </li>
+                            <li><i className="fas fa-hourglass-half"></i> <div><p className="heading-7"> {propertyObject?.property_details?.PropertyAge} </p><p className="heading-6">Property Age</p></div> </li>
 
                         </ul>
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-compass icon"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.Facing} </p><p className="heading-6">Facing</p></div> </li>
-                            {/*<li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>*/}
-                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject[0]?.RentalDetails?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
-                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject[0]?.RentalDetails?.Parking} </p><p className="heading-6">Parking</p></div> </li>
+                            <li><i className="fas fa-compass icon"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.Facing} </p><p className="heading-6">Facing</p></div> </li>
+                            {/*<li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>*/}
+                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject?.RentalDetails?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
+                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject?.RentalDetails?.Parking} </p><p className="heading-6">Parking</p></div> </li>
 
                         </ul>
 
@@ -266,7 +305,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         </div>
                     </div>
                         <div className="item-price">₹
-                            {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount}
+                            {propertyObject?.RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject?.RentalDetails?.ExpectedRent : propertyObject?.RentalDetails?.LeaseAmount}
                             <i>/</i><span>Month</span>
                         </div>
                     </div>
@@ -289,7 +328,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-img">
                     <a href="#">
-                        <img src={renderPropertyImage(listing)} alt="blog" width="250" height="200" />
+                        <img src={renderPropertyImage(propertyObject)} alt="blog" width="250" height="200" />
                     </a>
                     <div className="item-category-box1">
                         <div className="item-category">For Sale</div>
@@ -308,7 +347,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                 </div>
 
                 <div className="item-content item-content-property">
-                    <div className="item-category10">{propertyObject[0]?.property_details?.ApartmentType}</div>
+                    <div className="item-category10">{propertyObject?.property_details?.ApartmentType}</div>
                     <div className="react-icon react-icon-2">
                         {isUSer && isUSer != "" ?
                             <ul>
@@ -335,22 +374,23 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
                     <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success"> {listing.propertyType}</span>
                         <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
-                        <span className="badge rtcl-badge-_top">Posted : {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")}</span>
-                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject[0]?.property_details?.builtUpArea} sqft</span>
+                        <span className="badge rtcl-badge-_top">Posted : {moment(listing.createdDate).format("DD-MMM-YYYY")}</span>
+                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject?.property_details?.builtUpArea} sqft</span>
                     </div>
-                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
+                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject?.LocalityDetails?.city},{propertyObject?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.BHKType} </p><p className="heading-6" >Apartment Type</p></div></li>
-                            <li><i className="fas fa-compass icon"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.Facing} </p><p className="heading-6">Facing</p></div> </li>
-                            <li><i className="fas fa-hourglass-half"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.PropertyAge} </p><p className="heading-6">Property Age</p></div> </li>
+                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject?.property_details?.BHKType} </p><p className="heading-6" >Apartment Type</p></div></li>
+                            <li><i className="fas fa-compass icon"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.Facing} </p><p className="heading-6">Facing</p></div> </li>
+                            <li><i className="fas fa-hourglass-half"></i> <div><p className="heading-7"> {propertyObject?.property_details?.PropertyAge} </p><p className="heading-6">Property Age</p></div> </li>
 
                         </ul>
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject[0]?.ReSaleDetails?.AvailableFromResale).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
-                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject[0]?.ReSaleDetails?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
-                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject[0]?.ReSaleDetails?.Parking} </p><p className="heading-6">Parking</p></div> </li>
+                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject?.ReSaleDetails?.AvailableFromResale).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
+                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject?.ReSaleDetails?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
+                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject?.ReSaleDetails?.Parking} </p><p className="heading-6">Parking</p></div> </li>
 
                         </ul>
                     </div>
@@ -371,7 +411,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         </div>
                     </div>
                         <div className="item-price">₹
-                            {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject[0]?.ReSaleDetails?.ExpectedPrice : propertyObject[0]?.ReSaleDetails?.ExpectedPrice}
+                            {propertyObject?.ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject?.ReSaleDetails?.ExpectedPrice : propertyObject?.ReSaleDetails?.ExpectedPrice}
                             <i>/</i><span>Price <br /> (₹6,000 per sq.ft. )</span></div>
                     </div>
 
@@ -383,7 +423,6 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
         </div>)
     }
 
-
     function commercialRent() {
         return (<div className="col-lg-12" onClick={handleClick}>
             <div className="property-box2 property-box4 wow  fadeInUp animated" data-wow-delay=".6s" style={{
@@ -394,7 +433,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-img">
                     <a href="#">
-                        <img src={renderPropertyImage(listing)} alt="blog" width="250" height="200" />
+                        <img src={renderPropertyImage(propertyObject)} alt="blog" width="250" height="200" />
                     </a>
                     <div className="item-category-box1">
                         <div className="item-category">For Rent</div>
@@ -412,7 +451,12 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                 </div>
 
                 <div className="item-content item-content-property">
-                    <div className="item-category10">{propertyObject[0]?.property_details?.ApartmentType}</div>
+                    <div className="item-category10">
+
+                        {propertyObject?.property_details?.PropertyType}
+
+                    </div>
+
                     <div className="react-icon react-icon-2">
 
                         {isUSer && isUSer != "" ?
@@ -441,25 +485,26 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
                     <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success"> {listing.propertyType}</span>
                         <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
-                        <span className="badge rtcl-badge-_top">Posted : {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")}</span>
-                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject[0]?.property_details?.builtUpArea} sqft</span>
+                        <span className="badge rtcl-badge-_top">Posted : {moment(listing.createdDate).format("DD-MMM-YYYY")}</span>
+                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject?.property_details?.builtUpArea} sqft</span>
                     </div>
-                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
+                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject?.LocalityDetails?.city},{propertyObject?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
-                            <li><i className="fas fa-layer-group icon"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.Floor + "/" + propertyObject[0]?.property_details?.TotalFloor} </p><p className="heading-6">Floors</p></div> </li>
-                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.builtUpArea}  </p><p className="heading-6">Buitup</p></div> </li>
+                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject?.property_details?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
+                            <li><i className="fas fa-layer-group icon"></i> <div><p className="heading-7"> {propertyObject?.property_details?.Floor + "/" + propertyObject?.property_details?.TotalFloor} </p><p className="heading-6">Floors</p></div> </li>
+                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.builtUpArea}  </p><p className="heading-6">Buitup</p></div> </li>
 
 
                         </ul>
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
-                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject[0]?.AmenitiesDetails?.CommercialParking} </p><p className="heading-6">Parking</p></div> </li>
+                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
+                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject?.AmenitiesDetails?.CommercialParking} </p><p className="heading-6">Parking</p></div> </li>
 
 
-                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
+                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
 
                         </ul>
                     </div>
@@ -480,7 +525,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         </div>
                     </div>
                         <div className="item-price">₹
-                            {propertyObject[0].RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject[0]?.RentalDetails?.ExpectedRent : propertyObject[0]?.RentalDetails?.LeaseAmount}
+                            {propertyObject?.RentalDetails?.PropertyAvailable == "Only rent" ? propertyObject?.RentalDetails?.ExpectedRent : propertyObject?.RentalDetails?.LeaseAmount}
                             <i>/</i><span>Month</span></div>
                     </div>
 
@@ -503,7 +548,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-img">
                     <a href="#">
-                        <img src={renderPropertyImage(listing)} alt="blog" width="250" height="200" />
+                        <img src={renderPropertyImage(propertyObject)} alt="blog" width="250" height="200" />
                     </a>
                     <div className="item-category-box1">
                         <div className="item-category">For Sale</div>
@@ -522,7 +567,9 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                 </div>
 
                 <div className="item-content item-content-property">
-                    <div className="item-category10">{propertyObject[0]?.property_details?.ApartmentType}</div>
+                    <div className="item-category10">
+                        {propertyObject?.property_details?.PropertyType}
+                    </div>
                     <div className="react-icon react-icon-2">
                         {isUSer && isUSer != "" ?
                             <ul>
@@ -549,25 +596,26 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
                     <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success"> {listing.propertyType}</span>
                         <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
-                        <span className="badge rtcl-badge-_top">Posted : {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")}</span>
-                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject[0]?.property_details?.builtUpArea} sqft</span>
+                        <span className="badge rtcl-badge-_top">Posted : {moment(listing.createdDate).format("DD-MMM-YYYY")}</span>
+                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject?.property_details?.builtUpArea} sqft</span>
                     </div>
-                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
+                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject?.LocalityDetails?.city},{propertyObject?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
-                            <li><i className="fas fa-layer-group icon"></i> <div><p className="heading-7"> {propertyObject[0]?.property_details?.Floor + "/" + propertyObject[0]?.property_details?.TotalFloor} </p><p className="heading-6">Floors</p></div> </li>
-                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.builtUpArea}  </p><p className="heading-6">Buitup</p></div> </li>
+                            <li><i className="fas fa-building"></i> <div><p className="heading-7"> {propertyObject?.property_details?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
+                            <li><i className="fas fa-layer-group icon"></i> <div><p className="heading-7"> {propertyObject?.property_details?.Floor + "/" + propertyObject?.property_details?.TotalFloor} </p><p className="heading-6">Floors</p></div> </li>
+                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.builtUpArea}  </p><p className="heading-6">Buitup</p></div> </li>
 
 
                         </ul>
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject[0]?.property_details?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
-                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject[0]?.AmenitiesDetails?.CommercialParking} </p><p className="heading-6">Parking</p></div> </li>
+                            <li><i className="fas fa-couch"></i>   <div><p className="heading-7"> {propertyObject?.property_details?.Furnishing} </p><p className="heading-6">Furnishing</p></div> </li>
+                            <li><i className="fas fa-parking" ></i> <div><p className="heading-7"> {propertyObject?.AmenitiesDetails?.CommercialParking} </p><p className="heading-6">Parking</p></div> </li>
 
 
-                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject[0]?.ReSaleDetails?.AvailableFromResale).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
+                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject?.ReSaleDetails?.AvailableFromResale).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
 
                         </ul>
                     </div>
@@ -588,7 +636,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         </div>
                     </div>
                         <div className="item-price">₹
-                            {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject[0]?.ReSaleDetails?.ExpectedPrice : propertyObject[0]?.ReSaleDetails?.ExpectedPrice}
+                            {propertyObject?.ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject?.ReSaleDetails?.ExpectedPrice : propertyObject?.ReSaleDetails?.ExpectedPrice}
                             <i>/</i><span>Price</span></div>
                     </div>
 
@@ -611,7 +659,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
 
                 <div className="item-img">
                     <a href="#">
-                        <img src={renderPropertyImage(listing)} alt="blog" width="250" height="200" />
+                        <img src={renderPropertyImage(propertyObject)} alt="blog" width="250" height="200" />
                     </a>
                     <div className="item-category-box1">
                         <div className="item-category">For Sale</div>
@@ -630,7 +678,10 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                 </div>
 
                 <div className="item-content item-content-property">
-                    <div className="item-category10">{propertyObject[0]?.property_details?.ApartmentType}</div>
+                    <div className="item-category10">
+
+                        {propertyObject?.LandDetails?.PropertyType}
+                    </div>
                     <div className="react-icon react-icon-2">
                         {isUSer && isUSer != "" ?
                             <ul>
@@ -657,22 +708,23 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         <h3 className="item-title"><a href="#">{GetPropertyTitle(propertyObject)}</a></h3>
                     </div>
                     <div className="listing-badge-wrap">
+                        <span className="badge rtcl-badge-popular popular-badge badge-success"> {listing.propertyType}</span>
                         <span className="badge rtcl-badge-popular popular-badge badge-success">Verified</span>
-                        <span className="badge rtcl-badge-_top">Posted : {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")}</span>
-                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject[0]?.property_details?.builtUpArea} sqft</span>
+                        <span className="badge rtcl-badge-_top">Posted : {moment(listing.createdDate).format("DD-MMM-YYYY")}</span>
+                        <span className="badge rtcl-badge-_top">Builtup Area : {propertyObject?.LandDetails?.PlotArea} sqft</span>
                     </div>
-                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject[0]?.LocalityDetails?.city},{propertyObject[0]?.LocalityDetails?.state}</div>
+                    <div className="location-area"><i className="fas fa-map-marker-alt icon"></i>{propertyObject?.LocalityDetails?.city},{propertyObject?.LocalityDetails?.state}</div>
                     <div className="item-categoery3">
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-home"></i> <div><p className="heading-7"> {propertyObject[0]?.LandDetails?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
-                            <li><i className="fas fa-ruler-combined"></i>   <div><p className="heading-7"> {propertyObject[0]?.LandDetails?.PlotLength + "*" + propertyObject[0]?.LandDetails?.PlotWidth + "  " + propertyObject[0]?.LandDetails?.LandUnits} </p><p className="heading-6">Dimension (L x B)</p></div> </li>
-                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject[0]?.LandDetails?.PlotArea + "  " + propertyObject[0]?.LandDetails?.LandUnits}  </p><p className="heading-6">Plot Area</p></div> </li>
+                            <li><i className="fas fa-home"></i> <div><p className="heading-7"> {propertyObject?.LandDetails?.PropertyType} </p><p className="heading-6" >Property Type</p></div></li>
+                            <li><i className="fas fa-ruler-combined"></i>   <div><p className="heading-7"> {propertyObject?.LandDetails?.PlotLength + "*" + propertyObject?.LandDetails?.PlotWidth + "  " + propertyObject?.LandDetails?.LandUnits} </p><p className="heading-6">Dimension (L x B)</p></div> </li>
+                            <li><i className="fas fa-vector-square"></i>   <div><p className="heading-7"> {propertyObject?.LandDetails?.PlotArea + "  " + propertyObject?.LandDetails?.LandUnits}  </p><p className="heading-6">Plot Area</p></div> </li>
                         </ul>
                         <ul className="mb-2 propCategory">
-                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject[0]?.RentalDetails?.AvailableFrom).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
-                            <li><i className="fas fa-calendar-alt"></i>   <div><p className="heading-7"> {moment(listing?.updatedDate).format("DD-MMM-YYYY")}  </p><p className="heading-6">Posted On</p></div> </li>
+                            <li><i className="fas fa-calendar-alt"></i> <div><p className="heading-7">  {moment(propertyObject?.ReSaleDetails?.AvailableFromResale).format("DD-MMM-YYYY")} </p><p className="heading-6" >Available From</p></div></li>
+                            <li><i className="fas fa-calendar-alt"></i>   <div><p className="heading-7"> {moment(listing?.createdDate).format("DD-MMM-YYYY")}  </p><p className="heading-6">Posted On</p></div> </li>
 
-                            <li><i className="fas fa-border-all"></i> <div><p className="heading-7"> {propertyObject[0]?.LandDetails?.BoundaryWall} </p><p className="heading-6">Boundary Wall</p></div> </li>
+                            <li><i className="fas fa-border-all"></i> <div><p className="heading-7"> {propertyObject?.LandDetails?.BoundaryWall} </p><p className="heading-6">Boundary Wall</p></div> </li>
 
                         </ul>
                     </div>
@@ -693,7 +745,7 @@ const PropertyList = ({ listing, Category, AdType, isUSer }) => {
                         </div>
                     </div>
                         <div className="item-price">₹
-                            {propertyObject[0].ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject[0]?.ReSaleDetails?.ExpectedPrice : propertyObject[0]?.ReSaleDetails?.ExpectedPrice}
+                            {propertyObject?.ReSaleDetails?.PriceNegotiable == "Yes" ? propertyObject?.ReSaleDetails?.ExpectedPrice : propertyObject?.ReSaleDetails?.ExpectedPrice}
                             <i>/</i><span>Price</span></div>
                     </div>
 

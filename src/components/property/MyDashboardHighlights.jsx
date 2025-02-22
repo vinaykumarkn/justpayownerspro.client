@@ -17,7 +17,33 @@ const MyDashboardHighlights = ({ pickedData }) => {
         ? advertiseData
         : advertiseData.filter((item) => item.status === selectedStatus);
 
+    const GetPropertyTitle = (item) => {
+        let obj = JSON.parse(item.propertyObject);
 
+        let propertyTitle = "";
+        switch (item.propertyType) {
+            case "Residential Rent":
+                const rentDetails = obj.property_details;
+                propertyTitle = `${rentDetails?.BHKType} ${rentDetails?.ApartmentType.replace("/", " or ")} For Rent in ${obj?.LocalityDetails?.city}`;
+                break;
+            case "Residential Sale":
+                const saleDetails = obj.property_details;
+                propertyTitle = `${saleDetails?.BHKType} ${saleDetails?.ApartmentType.replace("/", "-")} For Sale in ${obj?.LocalityDetails?.city}`;
+                break;
+            case "Commercial Rent":
+                const commercialRentDetails = obj.property_details;
+                propertyTitle = `${commercialRentDetails?.PropertyType} For Rent in ${obj?.LocalityDetails?.city}`;
+                break;
+            case "Commercial Sale":
+                const commercialSaleDetails = obj.property_details;
+                propertyTitle = `${commercialSaleDetails?.PropertyType} For Sale in ${obj?.LocalityDetails?.city}`;
+                break;
+            case "LandOrPlot Sale":
+                propertyTitle = `Plot For Sale in ${obj?.LocalityDetails?.city}`;
+                break;
+        }
+        return propertyTitle;
+    }
 
     return (
        
@@ -61,7 +87,7 @@ const MyDashboardHighlights = ({ pickedData }) => {
 
                                 return (
                                     <>
-                                        <div class="col-xl-6 col-sm-12 ">
+                                        <div className="col-xl-6 col-sm-12 ">
                                         <div className="main-banner-box4 wow slideInUp p-3 border rounded shadow-sm bg-white" data-wow-delay=".3s">
                                             <div className="banner-style-1 d-flex justify-content-between align-items-center">
                                                 <div className="item-category-box1">
@@ -83,7 +109,7 @@ const MyDashboardHighlights = ({ pickedData }) => {
                                                 </div>
                                             </div>
                                                 <h3 className="item-title mt-2 fw-bold">
-                                                    <a href={`/property/${item.propertyID}`}>{item.propertyTitle}</a>                                                   
+                                                    <a href={`/property/${item.propertyID}`}>  {GetPropertyTitle(item)}   </a>                                                   
 
                                                 </h3>
                                             <div className="location-area text-muted mt-1">

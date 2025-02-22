@@ -103,6 +103,34 @@ const PropertyLocalityDetails = ({ tabItems, setSideNavTabs, isSale, isCommercia
         }
     }
 
+    // Function to mask email
+    const maskEmail = (email) => {
+        const emailParts = email.split('@');
+        const localPart = emailParts[0];
+        const domainPart = emailParts[1];
+
+        // Mask the local part (show only first letter and last 2 letters)
+        const maskedLocal = localPart.length > 3
+            ? `${localPart[0]}xxx${localPart[localPart.length - 1]}`
+            : "xxx";
+
+        return `${maskedLocal}@${domainPart}`;
+    };
+
+    // Function to mask mobile number
+    const maskMobileNumber = (mobileNumber) => {
+        // Remove spaces, dashes, or any unwanted characters
+        const cleanNumber = mobileNumber.replace(/\D/g, ''); // Remove all non-digit characters (if any)
+
+        // Check if the mobile number is valid and has 10 digits
+        if (cleanNumber.length === 10) {
+            // Mask the middle part of the number (e.g., 9876543210 becomes 987******10)
+            return `${cleanNumber.slice(0, 3)}******${cleanNumber.slice(7)}`;
+        } else {
+            return 'Invalid mobile number format';
+        }
+    };
+
     const onSubmit = handleSubmit(async (data) => {
         //get the local storage data based on guid as a key
         // const formData = JSON.parse(localStorage.getItem(params.guid));
@@ -117,14 +145,27 @@ const PropertyLocalityDetails = ({ tabItems, setSideNavTabs, isSale, isCommercia
         console.log(localityObj);
 
         const formData = PropertyModel.properties;
-        formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...localityObj });
-        formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+        //formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...localityObj });
+        //formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+
+        formData.PropertyObject = JSON.stringify({
+            ...propertyDataVal,
+            ...localityObj,
+            userInfo: {
+                "name": currentUser?.name,
+                "mobileNumber": maskMobileNumber(currentUser?.mobileNumber),
+                "email": maskEmail(currentUser?.email),
+                "pic": currentUser?.pic !== undefined ? currentUser?.pic : DefaultuserImg
+            }
+        });
+
+
         formData.advertiseID = params.guid;
         formData.adType = isSale ? "Sale" : "Rent";
         formData.propertyType = islandorPlot ? "LandOrPlot Sale" : isCommercial ? (isSale ? "Commercial Sale" : "Commercial Rent") : isSale ? "Residential Sale" : "Residential Rent";
         formData.userID = currentUser.id;
         formData.isActive = false;
-        formData.status = "Pending";
+        formData.status = "Draft";
         formData.listingStatus = "Listed";
         if (propertyData.propertyTitle.indexOf(locationDetails.state) == -1) {
             formData.PropertyTitle = propertyData.propertyTitle + " In " + locationDetails?.state;

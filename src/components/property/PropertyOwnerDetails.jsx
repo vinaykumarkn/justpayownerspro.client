@@ -9,11 +9,16 @@ import ContactModel from '../../common/EnquiryandReportAndGetContactForms/Contac
 import EnquiryModel from '../../common/EnquiryandReportAndGetContactForms/EnquiryModel'
 import ReportModel from '../../common/EnquiryandReportAndGetContactForms/ReportModel'
 import Swal from 'sweetalert2';
+import DefaultuserImg from '../../assets/img/DefaultuserImg1.png';
+
 
 const PropertyOwnerDetails = ({ tabTitle, property }) => {
-    const getPropertyData = JSON.parse(property?.PropertyObject || "{}") ||
-        JSON.parse(property?.propertyData || "{}");
+    const getPropertyData = JSON.parse(property?.PropertyObject || property?.propertyObject || "{}");
+        
+   // const getPropertyData1 = JSON.parse(property?.propertyObject)
 
+    console.log("----------")
+    console.log()
     /* const { id: userId } = useSelector(state => state.user?.currentUser);*/
 
     const { id: userId } = useSelector(state => state.user?.currentUser || "" );
@@ -64,8 +69,73 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
     }
 
 
+    const handleButtonClick = async (statusType) => {
+        if (!userId) {
+            // User is not logged in, show an alert
+            Swal.fire({
+                title: 'You must be logged in to update the property complaint',
+                text: 'Please log in to proceed.',
+                icon: 'warning',
+                confirmButtonText: 'Ok'
+            });
+            return;
+        }
+
+        // User is logged in, proceed to update the property
+        try {
+            const propertyData = {
+                status: statusType,
+                updatedAt: new Date().toISOString(),
+                // Add any other data you want to send
+            };
+
+           
+            const url = JPOapi.UpdatePropertyStatus.url; // Assuming you have an API endpoint for this
+
+           
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...propertyData,
+                    propertyID: property?.id,
+                    userID: userId,
+                }),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                Swal.fire({
+                    title: `${statusType} Updated Successfully`,
+                    text: `The property status has been updated to ${statusType}`,
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Failed to Update Property Status',
+                    text: result.message || 'Something went wrong, please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Something went wrong, please try again later.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        }
+    };
+
+
     const onSubmit = handleSubmit(async (props, data, e) => {
+
         console.log("data", props)
+
         if (data.Textarea != undefined) {
             let url = JPOapi.PublicCallEnquiry.url
             let type = "Enquiry"
@@ -85,6 +155,7 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
             console.log(EnquiryModelData);
             await handleFormSubmit(EnquiryModelData, url, type, props)
         }
+
         if (data.Textarea == undefined && data.ReportReasons == undefined) {
             let url = JPOapi.UpdateGetContact.url
             let type = "Contact"
@@ -92,7 +163,7 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
             ContactModelData.firstName = data.FullName
             ContactModelData.email = data.Email
             ContactModelData.phoneNumber = data.MobileNumber
-            ContactModelData.AdvertiseID = PropertyId
+            ContactModelData.AdvertiseID = params?.id;
             ContactModelData.CreatedBy = userId;
             ContactModelData.createdDate = new Date().toISOString();
             ContactModelData.updatedDate = new Date().toISOString();
@@ -100,6 +171,7 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
             ContactModelData.inquiryStatus = "Submitted"
             await handleFormSubmit(ContactModelData, url, type, props)
         }
+
         if (data.ReportReasons != undefined) {
             let url = JPOapi.UpdateReport.url
             let type = "Report"
@@ -107,7 +179,7 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
             ReportModelData.name = data.FullName
             ReportModelData.email = data.Email
             ReportModelData.phone = data.MobileNumber
-            ReportModelData.AdvertiseID = PropertyId
+            ReportModelData.AdvertiseID = params?.id;
             ReportModelData.issueType = data.ReportReasons.join(",")
             ReportModelData.createdDate = new Date().toISOString();
             ReportModelData.updatedDate = new Date().toISOString();
@@ -121,8 +193,6 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
         setModalTitle(title);
         setModalShow(true);
     };
-
-
 
     function EnquiryAdvertiser(props) {
         const handleClose = () => { reset(); props.onHide() };
@@ -258,62 +328,49 @@ const PropertyOwnerDetails = ({ tabTitle, property }) => {
         );
     }
 
-
     return (
         <div className="widget widget-contact-box" id={tabTitle} >
-
-
-
             <h3 className="widget-subtitle">Contact Owner</h3>
             <div className="media d-flex">
                 <div className="flex-shrink-0">
-                    <div className="item-img">
-                        <a href="agent-lists1.html"><img src="https://radiustheme.com/demo/html/homlisti/img/team/team9.png" alt="widget" width="107" height="100" /></a>
+                    <div className="item-img"> 
+                        <a href="agent-lists1.html"><img src={DefaultuserImg} alt="widget" width="107" height="100" /></a>
                     </div>
                 </div>
                 <div className="media-body flex-grow-1 ms-3">
-                    <h4 className="item-title">RadiusTheme</h4>
+                    <h4 className="item-title">    {getPropertyData?.userInfo?.name}      </h4>
                     <div className="item-phn">
-                        + 132 899 6XXX
+                        {getPropertyData?.userInfo?.mobileNumber} 
                     </div>
-                    <div className="item-mail">agent@radiustheme.com</div>
-
+                    <div className="item-mail">{getPropertyData?.userInfo?.email} </div>
                 </div>
             </div>
             <div className="item-mail">Report what was not correct in this property </div>
             <ul className="wid-contact-button">
                 <li>
-                    <a
-                        href={`https://wa.me/?text=${pageTitle}%20${currentUrl}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => handleButtonClick("Sold Out")}
+                        className="btn btn-warning"
                     >
-                       Sold Out 
-                    </a>
-
+                        Sold Out
+                    </button>
                 </li>
                 <li>
-                    <a
-                        href={`https://wa.me/?text=${pageTitle}%20${currentUrl}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => handleButtonClick("Wrong Info")}
+                        className="btn btn-warning"
                     >
                         Wrong Info
-                    </a>
-
+                    </button>
                 </li>
                 <li>
-                    <a
-                        href={`https://wa.me/?text=${pageTitle}%20${currentUrl}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => handleButtonClick("Listed by Broker")}
+                        className="btn btn-warning"
                     >
                         Listed by Broker
-                    </a>
-
-                </li>
-               
-
+                    </button>
+                </li>             
             </ul>
             <div className="contact-box rt-contact-form" >
                 <div className="row">

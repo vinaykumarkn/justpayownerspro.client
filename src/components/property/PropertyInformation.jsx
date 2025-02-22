@@ -57,61 +57,95 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
     };
 
     function OurService() {
-        return (<div className="card-body">
-            <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-6">
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
-                        </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
-                    </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-sm-6">
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
-                        </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
-                    </div>
-                </div>
-                <div className="col-lg-4 col-md-4 col-sm-6" >
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
-                        </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
-                    </div>
-                </div>
-            </div>
 
-            <div className="row">
-                <div className="col-lg-4 col-md-4 col-sm-6">
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
+        return (<div className="col-lg-12 col-md-12">
+            <div
+                className="about-box-10 wow fadeInRight animated"
+                data-wow-delay=".3s"
+                style={{ visibility: 'visible', animationDelay: '0.3s', animationName: 'fadeInRight' }}
+            >
+                <div className="item-heading-left mb-bottom">
+                    <p>
+                        Make a type specimen book. It has survived not only five centuries, but also the
+                        leap into electronic typesetting, remaining essentially electronic typesettings
+                        specimen book.
+                    </p>
+                </div>
+                <div className="row">
+                    <div className="col-lg-6 col-md-6">
+                        <div className="about-svg-shape">
+                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="svg" />
+                            <div className="item-content">
+                                <div className="item-content__text">
+                                    <div className="item-k">
+                                        <span className="counterUp" data-counter="55">
+                                            55
+                                        </span>
+                                        K
+                                    </div>
+                                </div>
+                                <p>Satisfied People</p>
+                            </div>
                         </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
+                    </div>
+                    <div className="col-lg-6 col-md-6">
+                        <div className="about-svg-shape">
+                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="svg" />
+                            <div className="item-content">
+                                <div className="item-content__text">
+                                    <div className="item-k">
+                                        <span className="counterUp" data-counter="11">
+                                            11
+                                        </span>
+                                        K
+                                    </div>
+                                </div>
+                                <p>Verified Property</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="col-lg-4 col-md-4 col-sm-6">
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
+                <div className="row">
+                    <div className="col-lg-6 col-md-6">
+                        <div className="about-svg-shape">
+
+                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="svg" />
+                            <div className="item-content">
+                                <div className="item-content__text">
+                                    <div className="item-k">
+                                        <span className="counterUp" data-counter="55">
+                                            55
+                                        </span>
+                                        K
+                                    </div>
+                                </div>
+                                <p>Satisfied People</p>
+                            </div>
                         </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
+                    </div>
+                    <div className="col-lg-6 col-md-6">
+                        <div className="about-svg-shape">
+                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="svg" />
+                            <div className="item-content">
+                                <div className="item-content__text">
+                                    <div className="item-k">
+                                        <span className="counterUp" data-counter="11">
+                                            11
+                                        </span>
+                                        K
+                                    </div>
+                                </div>
+                                <p>Verified Property</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="col-lg-4 col-md-4 col-sm-6" >
-                    <div className="about-layout1">
-                        <div className="item-img">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape23.svg" alt="shape" width="55" height="57" />
-                        </div>
-                        <h6 className="item-sm-title">Modern Villa</h6>
-                    </div>
-                </div>
+
+
             </div>
         </div>)
+
+       
     }
 
     function fetchAboutProperty() {
@@ -504,8 +538,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Property Age </li>
                         <li className="deep-clr ">{getPropertyData.property_details?.PropertyAge}</li>
+                        <li>property age </li>                       
                     </ul>
                 </div>
             }
@@ -516,8 +550,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-users icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Preferred Tenants </li>
                         <li className="deep-clr">{getPropertyData.RentalDetails?.PreferredTenants}</li>
+                        <li>preferred tenants </li>                       
                     </ul>
                 </div>
             }
@@ -527,8 +561,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-layer-group icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Floor </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Floor} / {getPropertyData.property_details?.TotalFloor}</li>
+                        <li>floor </li>                        
                     </ul>
                 </div>
             }
@@ -538,8 +572,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-couch icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Furnishing</li>
                         <li className="deep-clr">{getPropertyData.RentalDetails?.Furnishing} {getPropertyData.property_details?.Furnishing}</li>
+                        <li>furnishing</li>                       
                     </ul>
                 </div>
             }
@@ -549,8 +583,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-parking icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Parking</li>
                         <li className="deep-clr">{getPropertyData.RentalDetails?.Parking} {getPropertyData.AmenitiesDetails?.CommercialParking}</li>
+                        <li>parking</li>                       
                     </ul>
                 </div>
             }
@@ -560,8 +594,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-compass icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Facing</li>
                         <li className="deep-clr">{getPropertyData.property_details?.Facing}</li>
+                        <li>facing</li>                      
                     </ul>
                 </div>
             }
@@ -571,8 +605,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-faucet"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Water Supply</li>
                         <li className="deep-clr">{getPropertyData.property_details?.WaterSupply}</li>
+                        <li>water supply</li>
+                       
                     </ul>
                 </div>
             }
@@ -582,8 +617,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-bath icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Bathroom </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Bathroom}</li>
+                        <li>bathroom </li>                       
                     </ul>
                 </div>
             }
@@ -593,8 +628,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-archway icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Balcony</li>
                         <li className="deep-clr">{getPropertyData.property_details?.Balcony}</li>
+                        <li>balcony</li>                       
                     </ul>
                 </div>
             }
@@ -604,8 +639,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-grip-horizontal icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Floor Type</li>
                         <li className="deep-clr">{getPropertyData.property_details?.FloorType}</li>
+                        <li>floor type</li>                        
                     </ul>
                 </div>
             }
@@ -615,8 +650,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-utensils icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Non VegAllowed </li>
                         <li className="deep-clr">{getPropertyData.property_details?.NonVegAllowed}</li>
+                        <li>non veg allowed </li>                       
                     </ul>
                 </div>
             }
@@ -626,8 +661,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-shield-alt icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Gated Security</li>
                         <li className="deep-clr">{getPropertyData.property_details?.GatedSecurity}</li>
+                        <li>gated security</li>                       
                     </ul>
                 </div>
             }
@@ -637,8 +672,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-battery-full icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Power Backup </li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.PowerBackup}</li>
+                        <li>power backup </li>                        
                     </ul>
                 </div>
             }
@@ -648,8 +683,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-elevator icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Lift</li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.Lift}</li>
+                        <li>lift</li>                       
                     </ul>
                 </div>
             }
@@ -659,8 +694,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-toilet icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Washroom </li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.Washroom}</li>
+                        <li>washroom </li>                      
                     </ul>
                 </div>
             }
@@ -670,8 +705,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-tint icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Water Storage Facility</li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.WaterStorageFacility}</li>
+                        <li>water storage facility</li>                        
                     </ul>
                 </div>
             }
@@ -681,8 +716,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-shield-alt icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Security </li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.Security}</li>
+                        <li>security </li>                       
                     </ul>
                 </div>
             }
@@ -692,8 +727,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-wifi icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Wifi </li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.Wifi}</li>
+                        <li>wifi </li>                      
                     </ul>
                 </div>
             }
@@ -703,8 +738,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Similar Units </li>
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.SimilarUnits}</li>
+                        <li>similar units </li>                        
                     </ul>
                 </div>
             }
@@ -714,8 +749,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building"></i>
                     </div>
                     <ul className="item-number">
-                        <li>PropertyType</li>
                         <li className="deep-clr">{getPropertyData.property_details?.PropertyType}</li>
+                        <li>property type</li>                       
                     </ul>
                 </div>
             }
@@ -725,8 +760,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Building Type</li>
                         <li className="deep-clr">{getPropertyData.property_details?.BuildingType}</li>
+                        <li>building type</li>                      
                     </ul>
                 </div>
             }
@@ -736,8 +771,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Property Age </li>
                         <li className="deep-clr">{getPropertyData.property_details?.PropertyAge}</li>
+                        <li>property age </li>                        
                     </ul>
                 </div>
             }
@@ -747,8 +782,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-key icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Ownership </li>
                         <li className="deep-clr">{getPropertyData.property_details?.OwnershipType} {getPropertyData.property_details?.Ownership}</li>
+                        <li>ownership </li>                       
                     </ul>
                 </div>
             }
@@ -758,8 +793,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-layer-group icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Floor</li>
                         <li className="deep-clr">{getPropertyData.property_details?.Floor} / {getPropertyData.property_details?.TotalFloor}</li>
+                        <li>floor</li>                      
                     </ul>
                 </div>
             }
@@ -770,8 +805,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-couch icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Furnishing </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Furnishing} {getPropertyData.ReSaleDetails?.Furnishing}</li>
+                        <li>furnishing </li>                       
                     </ul>
                 </div>
             }
@@ -781,8 +816,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-building"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Builtup</li>
                         <li className="deep-clr">{getPropertyData.property_details?.builtUpArea} Sqft</li>
+                        <li>built up</li>                        
                     </ul>
                 </div>
             }
@@ -792,8 +827,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-parking icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Parking</li>
                         <li className="deep-clr">{getPropertyData.property_details?.Parking} {getPropertyData.ReSaleDetails?.Parking}</li>
+                        <li>parking</li>                        
                     </ul>
                 </div>
             }
@@ -803,8 +838,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-utensils"></i>
                     </div>
                     <ul className="item-number">
-                        <li>KitchenType </li>
                         <li className="deep-clr">{getPropertyData.ReSaleDetails?.KitchenType} </li>
+                        <li>kitchen type </li>                       
                     </ul>
                 </div>
             }
@@ -814,8 +849,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-compass icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Facing </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Facing} </li>
+                        <li>facing </li>                       
                     </ul>
                 </div>
             }
@@ -825,8 +860,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-bath icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Bathroom </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Bathroom} </li>
+                        <li>bathroom </li>                        
                     </ul>
                 </div>
             }
@@ -836,8 +871,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-archway icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Balcony </li>
                         <li className="deep-clr">{getPropertyData.property_details?.Balcony}  </li>
+                        <li>balcony </li>                       
                     </ul>
                 </div>
             }
@@ -847,8 +882,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-grip-horizontal icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Floor Type</li>
                         <li className="deep-clr">{getPropertyData.property_details?.FloorType}  </li>
+                        <li>floor type</li>                       
                     </ul>
                 </div>
             }
@@ -858,8 +893,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-faucet"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Water Supply </li>
                         <li className="deep-clr">{getPropertyData.property_details?.WaterSupply}  </li>
+                        <li>water supply </li>                        
                     </ul>
                 </div>
             }
@@ -868,9 +903,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                     <div className="item-icon">
                         <i className="fas fa-shield-alt icon"></i>
                     </div>
-                    <ul className="item-number">
-                        <li>Gated Security</li>
+                    <ul className="item-number">                       
                         <li className="deep-clr">{getPropertyData.property_details?.GatedSecurity} </li>
+                        <li>gated security</li>
                     </ul>
                 </div>
             }
@@ -879,9 +914,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                     <div className="item-icon">
                         <i className="fas fa-home icon"></i>
                     </div>
-                    <ul className="item-number">
-                        <li>Property Type </li>
+                    <ul className="item-number">                        
                         <li className="deep-clr">{getPropertyData.LandDetails?.PropertyType} </li>
+                        <li>property type </li>
                     </ul>
                 </div>
             }
@@ -891,8 +926,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-key icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Ownership  </li>
                         <li className="deep-clr">{getPropertyData.LandDetails?.Ownership} </li>
+                        <li>ownership </li>
+                        
                     </ul>
                 </div>
             }
@@ -902,9 +938,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                     <div className="item-icon">
                         <i className="fas fa-tags icon"></i>
                     </div>
-                    <ul className="item-number">
-                        <li>Sale Type  </li>
+                    <ul className="item-number">                        
                         <li className="deep-clr">{getPropertyData.LandDetails?.SaleType} </li>
+                        <li>sale type  </li>
                     </ul>
                 </div>
             }
@@ -914,8 +950,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-home icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Builtup</li>
+                        
                         <li className="deep-clr">{getPropertyData.LandDetails?.PlotArea}  {getPropertyData.LandDetails?.LandUnits}  </li>
+                        <li>built up</li>
                     </ul>
                 </div>
             }
@@ -925,8 +962,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-expand icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Width and Length  </li>
+                        
                         <li className="deep-clr">{getPropertyData.LandDetails?.PlotWidth}* {getPropertyData.LandDetails?.PlotLength}s </li>
+                        <li>width and length  </li>
                     </ul>
                 </div>
             }
@@ -936,8 +974,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-road icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Road Width  </li>
+                       
                         <li className="deep-clr">{getPropertyData.AmenitiesDetails?.RoadWidth} </li>
+                        <li>road width  </li>
                     </ul>
                 </div>
             }
@@ -949,8 +988,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-border-style icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Boundary Wall  </li>
+                      
                         <li className="deep-clr">{getPropertyData.LandDetails?.BoundaryWall} </li>
+                        <li>boundary wall  </li>
                     </ul>
                 </div>
             }
@@ -960,8 +1000,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-shield-alt icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Gated Security  </li>
+                       
                         <li className="deep-clr">{getPropertyData.LandDetails?.GatedSecurity} </li>
+                        <li>gated security  </li>
                     </ul>
                 </div>
             }
@@ -972,8 +1013,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-layer-group icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Floors Allowed  </li>
+                       
                         <li className="deep-clr">{getPropertyData.LandDetails?.FloorsAllowed} </li>
+                        <li>floors allowed  </li>
                     </ul>
                 </div>
             }
@@ -983,8 +1025,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-hand-holding-usd icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Currently UnderLoan   </li>
                         <li className="deep-clr">{getPropertyData.ReSaleDetails?.CurrentlyUnderLoan} </li>
+                        <li>currently underLoan   </li>
+                       
                     </ul>
                 </div>
             }
@@ -994,8 +1037,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-copy icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>IS MultiplePlots  </li>
                         <li className="deep-clr">{getPropertyData.LandDetails?.ISMultiplePlots} </li>
+                        <li>is multiple plots  </li>
+                       
                     </ul>
                 </div>
             }
@@ -1005,8 +1049,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                         <i className="fas fa-copy icon"></i>
                     </div>
                     <ul className="item-number">
-                        <li>Khata Certificate  </li>
                         <li className="deep-clr">{getPropertyData.AdditionalInfo?.KhataCertificate} </li>
+                        <li>khata certificate  </li>
+                       
                     </ul>
                 </div>
             }
@@ -1031,7 +1076,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div>                               
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1051,7 +1098,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1070,7 +1119,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1088,7 +1139,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1107,7 +1160,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1126,7 +1181,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1144,7 +1201,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1164,7 +1223,9 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                         <div className="col-lg-4 col-md-4">
                             <div className="about-svg-shape">
-                                <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                                <div className="item-icon">
+                                    <i className="fas fa-file-alt fa-3x" style={{ color: '#375794' }}></i>
+                                </div> 
                                 <div className="item-content">
                                     <div className="item-content">
                                         <div className="item-content__text">
@@ -1381,12 +1442,10 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
 
                 {(property?.category === 'LandOrPlot Sale' && getPropertyData.AmenitiesDetails?.WaterSupply) &&
-
-
-
                     <div className="col-lg-4 col-md-4">
                         <div className="about-svg-shape">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                            <div className="item-icon"> <i className="fas fa-faucet fa-3x" style={{ color: '#375794' }}></i>    </div>
+                                                  
                             <div className="item-content">
                                 <div className="item-content">
                                     <div className="item-content__text">
@@ -1402,8 +1461,8 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
                 {(property?.category === 'LandOrPlot Sale' && getPropertyData.AmenitiesDetails?.ElectricityConnection) &&
 
                     <div className="col-lg-4 col-md-4">
-                        <div className="about-svg-shape">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                        <div className="about-svg-shape">                            
+                            <div className="item-icon"> <i className="fas fa-bolt fa-3x" style={{ color: '#375794' }} ></i>   </div>
                             <div className="item-content">
                                 <div className="item-content">
                                     <div className="item-content__text">
@@ -1421,7 +1480,7 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                     <div className="col-lg-4 col-md-4">
                         <div className="about-svg-shape">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                            <div className="item-icon"> <i className="fas fa-water fa-3x" style={{ color: '#375794' }}></i>  </div>
                             <div className="item-content">
                                 <div className="item-content">
                                     <div className="item-content__text">
@@ -1439,7 +1498,7 @@ const PropertyInformation = ({ tabTitle, tabSection, property }) => {
 
                     <div className="col-lg-4 col-md-4">
                         <div className="about-svg-shape">
-                            <img src="https://radiustheme.com/demo/html/homlisti/img/figure/shape28.svg" alt="svg" />
+                            <div className="item-icon">  <i className="fas fa-road fa-3x" style={{ color: '#375794' }}></i>   </div>
                             <div className="item-content">
                                 <div className="item-content">
                                     <div className="item-content__text">

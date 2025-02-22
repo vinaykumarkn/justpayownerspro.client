@@ -42,8 +42,9 @@ const CommercialRentDetails = ({ tabItems, setSideNavTabs, isSale, fetchAdvartis
         if (params.tabtitle == "property") { // to get fresh data from server when tab is clicked
             fetchAdvartiseData(params.guid, userId).then((data) => {
                 setPropertyData(data?.data);
-                if (data != null && data.data != null) {
-                    setRentDetails(JSON.parse(data?.data?.PropertyObject).property_details);
+                if (data != null && data.data != null) {                    
+                    var getdata = data?.data?.propertyObject || data?.data?.PropertyObject
+                    setRentDetails(JSON.parse(getdata).property_details || JSON.parse(getdata).property_details);
                 }
             });
         }
@@ -108,6 +109,34 @@ const CommercialRentDetails = ({ tabItems, setSideNavTabs, isSale, fetchAdvartis
         }
     }
 
+    // Function to mask email
+    const maskEmail = (email) => {
+        const emailParts = email.split('@');
+        const localPart = emailParts[0];
+        const domainPart = emailParts[1];
+
+        // Mask the local part (show only first letter and last 2 letters)
+        const maskedLocal = localPart.length > 3
+            ? `${localPart[0]}xxx${localPart[localPart.length - 1]}`
+            : "xxx";
+
+        return `${maskedLocal}@${domainPart}`;
+    };
+
+    // Function to mask mobile number
+    const maskMobileNumber = (mobileNumber) => {
+        // Remove spaces, dashes, or any unwanted characters
+        const cleanNumber = mobileNumber.replace(/\D/g, ''); // Remove all non-digit characters (if any)
+
+        // Check if the mobile number is valid and has 10 digits
+        if (cleanNumber.length === 10) {
+            // Mask the middle part of the number (e.g., 9876543210 becomes 987******10)
+            return `${cleanNumber.slice(0, 3)}******${cleanNumber.slice(7)}`;
+        } else {
+            return 'Invalid mobile number format';
+        }
+    };
+
     const onSubmit = handleSubmit(async (data, e) => {
         console.log(rentDetails);
         console.log(data);
@@ -116,14 +145,25 @@ const CommercialRentDetails = ({ tabItems, setSideNavTabs, isSale, fetchAdvartis
         // save the data in local storage
 
         const formData = PropertyModel.properties;
-        formData.PropertyObject = JSON.stringify({ "property_details": rentDetails });
-        formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+        //formData.PropertyObject = JSON.stringify({ "property_details": rentDetails });
+        //formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+
+        formData.PropertyObject = JSON.stringify({
+            property_details: rentDetails,
+            userInfo: {
+                "name": currentUser?.name,
+                "mobileNumber": maskMobileNumber(currentUser?.mobileNumber),
+                "email": maskEmail(currentUser?.email),
+                "pic": currentUser?.pic !== undefined ? currentUser?.pic : DefaultuserImg
+            }
+        });
+
         formData.advertiseID = params.guid;
         formData.adType = isSale ? "Sale" : "Rent";
         formData.propertyType = isSale ? "Commercial Sale" : "Commercial Rent";
         formData.userID = currentUser.id;
         formData.isActive = false;
-        formData.status = "Pending";
+        formData.status = "Draft";
         formData.listingStatus = "Listed";
 
         //generate property title based on the property details and title will be like example '2 BHK House For Lease In Krishnarajapura'

@@ -6,12 +6,13 @@ import { generatePath, useNavigate, useParams } from 'react-router-dom'
 import { PropertySubmitButton } from '../../components'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaCalendarAlt } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import JPOapi from '../../common';
 import PropertyModel from '../../common/property/PropertyModel';
 import fetchAdvartiseData from '../../common/property/getPropertyAdvartiseData';
 import DefaultuserImg from '../../assets/img/DefaultUserImg.jpg';
+import { FaCalendarAlt } from "react-icons/fa";
+
 
 const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial }) => {
 
@@ -135,6 +136,34 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
         }
     }
 
+    // Function to mask email
+    const maskEmail = (email) => {
+        const emailParts = email.split('@');
+        const localPart = emailParts[0];
+        const domainPart = emailParts[1];
+
+        // Mask the local part (show only first letter and last 2 letters)
+        const maskedLocal = localPart.length > 3
+            ? `${localPart[0]}xxx${localPart[localPart.length - 1]}`
+            : "xxx";
+
+        return `${maskedLocal}@${domainPart}`;
+    };
+
+    // Function to mask mobile number
+    const maskMobileNumber = (mobileNumber) => {
+        // Remove spaces, dashes, or any unwanted characters
+        const cleanNumber = mobileNumber.replace(/\D/g, ''); // Remove all non-digit characters (if any)
+
+        // Check if the mobile number is valid and has 10 digits
+        if (cleanNumber.length === 10) {
+            // Mask the middle part of the number (e.g., 9876543210 becomes 987******10)
+            return `${cleanNumber.slice(0, 3)}******${cleanNumber.slice(7)}`;
+        } else {
+            return 'Invalid mobile number format';
+        }
+    };
+
     const onSubmit = handleSubmit(async (data) => {
         console.log(propertyData);
         const propertyDataVal = JSON.parse(propertyData.propertyObject);
@@ -144,14 +173,27 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
         console.log(rentalObj);
 
         const formData = PropertyModel.properties;
-        formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...rentalObj });
-        formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+        //formData.PropertyObject = JSON.stringify({ ...propertyDataVal, ...rentalObj });
+        //formData.userInfo = JSON.stringify({ "name": currentUser?.name, "email": currentUser?.email, "pic": currentUser?.pic != undefined ? currentUser?.pic : DefaultuserImg });
+
+        formData.PropertyObject = JSON.stringify({
+            ...propertyDataVal,
+            ...rentalObj,
+            userInfo: {
+                "name": currentUser?.name,
+                "mobileNumber": maskMobileNumber(currentUser?.mobileNumber),
+                "email": maskEmail(currentUser?.email),
+                "pic": currentUser?.pic !== undefined ? currentUser?.pic : DefaultuserImg
+            }
+        });
+
+
         formData.advertiseID = params.guid;
         formData.adType = isSale ? "Sale" : "Rent";
         formData.propertyType = isCommercial ? (isSale ? "Commercial Sale" : "Commercial Rent") : isSale ? "Residential Sale" : "Residential Rent";
         formData.userID = currentUser.id;
         formData.isActive = false;
-        formData.status = "Pending";
+        formData.status = "Draft";
         formData.listingStatus = "Listed";
         formData.PropertyTitle = propertyData.propertyTitle;
 
@@ -330,7 +372,10 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
                                 {/*</div>*/}
 
                                 <Controller className="form-control" control={control} name="AvailableFrom" render={({ field }) => (
-                                    <DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} minDate={new Date()}
+                                    //<DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} minDate={new Date()}
+                                    //    value={rentalDetails?.AvailableFrom} {...field} selected={rentalDetails?.AvailableFrom} name='AvailableFrom' id='AvailableFrom' />
+
+                                         <DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} minDate={new Date()}
                                         value={rentalDetails?.AvailableFrom} {...field} selected={rentalDetails?.AvailableFrom} name='AvailableFrom' customInput={
                                             <div className="custom-input">
                                               <input {...field} value={rentalDetails?.AvailableFrom} readOnly />
@@ -338,6 +383,8 @@ const PropertyRentalDetails = ({ tabItems, setSideNavTabs, isSale, isCommercial 
                                             </div>
                                           } id='AvailableFrom' />
                                 )} />
+
+                               {/* )} />*/}
                                 {/* <DatePicker onSelect={(val, e) => onChangeDate(val, e, "AvailableFrom")} value={select.AvailableFrom} {...register("AvailableFrom", { required: true })} selected={select.AvailableFrom} name='AvailableFrom' id='AvailableFrom' /> */}
                             </div>
                             {errors.AvailableFrom && <span className="formError errorMssg" style={{ color: 'red' }}> AvailableFrom   Required</span>}
